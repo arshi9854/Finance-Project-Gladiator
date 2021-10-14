@@ -1,0 +1,240 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerpage">
+    <!--change data target here-->
+    Register
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="registerpage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="form-title text-center ">Register</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="form-outline">
+              <div class="form-group">
+                <b>Name:</b><input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name" 
+                formControlName="Name" 
+                [class.is-invalid]="f.Name.errors?.invalid && f.Name.errors?.touched">
+                <div >
+                  <small class="text-danger" *ngIf="f.Name.errors?.required">Name is required</small>
+                     
+                      
+                          </div>
+
+                
+
+                    
+                    
+                  </div>
+              </div><br>
+              <!-- <div class="form-group"> -->
+
+
+                <div class="input-group">
+                  <b>Phone Number:</b><input id="phoneno" type="number" class="form-control"
+                    aria-describedby="basic-addon2" formControlName="Phone_no" placeholder="Enter your phone number" name="phoneno"
+                    [class.invalid]="f.Phone_no.invalid && f.Phone_no.touched" >
+
+                    <div >
+                      <small class="text-danger" *ngIf="f.Name.errors?.required">Phone Number is required</small>
+                      <small class="text-danger" *ngIf="f.Name.errors?.minlength">Invalid Phone Number</small>
+                      <small class="text-danger" *ngIf="f.Name.errors?.maxlength">Invalid Phone Number</small>
+                         
+                          
+                              </div>
+                  
+                </div><br><br>
+
+
+                <div class="input-group">
+                    <b>Email:</b><input id="email" type="email" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="Email" placeholder="Enter your Email id" name="email"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.Email?.errors?.required">Email is required</small>
+                          <small class="text-danger" *ngIf="f.Email?.errors?.pattern">Invalid Email</small>
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+                  <div class="input-group">
+                    <b>Address:</b><input id="address" type="text" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="Address" placeholder="Enter your Address" name="address"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.Address?.errors?.required">Address is required</small>
+                          
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+                  <div class="input-group">
+                    <b>User Name:</b><input id="username" type="text" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="username" placeholder="Enter your Username" name="username"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.username?.errors?.required">Username is required</small>
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+                  <div class="input-group">
+                    <b>Password:</b><input id="password" type="password" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="password" placeholder="Enter your password" name="password"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.password.errors?.required">Password is required</small>
+                      <small class="text-danger" *ngIf="f.password.errors?.minlength">Invalid Password</small>
+                      <small class="text-danger" *ngIf="f.password.errors?.maxlength">Invalid Password</small>
+                         
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+                  <div class="input-group">
+                    <b>Confirm Password:</b><input id="confirmpassword" type="password" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="confirmpassword" placeholder="confirm password" name="confirmpassword"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.confirmpassword.errors?.required">Password is required</small>
+                      <small class="text-danger" *ngIf="f.confirmpassword.errors?.minlength">Invalid Password</small>
+                      <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
+                         
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+
+                 
+                  <div class="input-group">
+                  <b>Card Type:</b><select placeholder="select Your card type" id="cardType" name="cardType" formControlName="cardType" class="form-control">
+                    <option>Gold</option>
+                    <option>Titanium</option>
+                     </select>
+                    
+                  </div><br><br>
+
+                  <b>Select Bank:</b><select placeholder="select bank" id="bank" name="bank" 
+                  formControlName="bank" class="form-control">
+                    <option>IDBI</option>
+                    <option>ICICI</option>
+                    <option>State Bank of India</option>
+                    <option>Jammu and Kashmir Bank</option>
+                    <option>Karnataka Bank Ltd</option>
+                     </select>
+                    
+                  <br><br>
+
+
+                  <div class="input-group">
+                    <b>Saving Accounts Number:</b><input id="accntno" type="number" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="accountno" placeholder="Enter Account number" 
+                      name="accntno"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.accountno.errors?.required">Account Number is required</small>
+                      <small class="text-danger" *ngIf="f.accountno.errors?.minlength">Invalid Account number</small>
+                      <small class="text-danger" *ngIf="f.accountno.errors?.maxlength">Invalid Account number</small>
+                         
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+
+                  <div class="input-group">
+                    <b>IFSC code:</b><input id="ifsc" type="text" class="form-control"
+                      aria-describedby="basic-addon2" formControlName="ifsc" placeholder="Enter IFSC code" 
+                      name="ifsc"
+                     >
+
+                     <div >
+                      <small class="text-danger" *ngIf="f.ifsc?.errors?.required">IFSC code is required</small>
+                          <small class="text-danger" *ngIf="f.ifsc?.errors?.pattern">Invalid IFSC code</small>
+                          
+                              </div>
+                    
+                  </div><br><br>
+
+                  <div class="form-group" align=center>
+                    
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Register</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button><br><br>
+
+                    <div class="form-group" >
+                      <button type="button" class="btn btn-light" data-dismiss="modal" data-toggle="modal" data-target="#loginPage">Already Registered?</button>><br>
+                      
+                    </div>
+                  
+
+
+                  <!-- ----------------LOGIN Page-------------------  -->
+
+             
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPage">
+    
+    Login
+  </button>
+</div>
+  
+  Modal
+  <div class="modal fade" id="loginPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="form-title text-center ">Login</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form> -->
+          <!-- <div class="modal-body">
+            <div class="form-outline">
+              <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder="Username" name="username" required>
+              </div> -->
+              <!-- <div class="form-group"> -->
+                
+          
+  
+  
+  <!--Admin Modal-->
+  
+  <!-- <div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="form-title text-center "> Admin Login</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+  
+  
+  
+  
+  

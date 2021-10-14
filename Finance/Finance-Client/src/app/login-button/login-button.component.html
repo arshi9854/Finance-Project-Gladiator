@@ -1,0 +1,100 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPage">
+  <!--change data target here-->
+  Login
+</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#forgotPassword">
+  forgot password
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="loginPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="form-title text-center ">Login</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-outline">
+            <div class="form-group">
+              <input type="text" id="username" class="form-control" placeholder="Username" name="username" required>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input id="password" [type]="fieldTextType ? 'text' : 'password'" class="form-control"
+                  aria-describedby="basic-addon2" formControlName="password" placeholder="Password" name="password"
+                  minlength="8" required>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="toggleFieldTextType()">{{fieldTextType ?
+                    'Hide Password' : 'Show Password'}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <a href="#" title="Forgot Password" (click)="handle_click()" data-toggle="modal" data-target="#forgotPassword"
+                data-dismiss="modal">Forgot Password?</a><br>
+              Not a member yet? <a href="#a" title="Become A Member." data-target="#registerpage" data-toggle="modal"  > Sign Up</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light float-left " data-toggle="modal" data-dismiss="modal"
+            data-target="#adminLogin">Admin</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--Admin Modal-->
+
+<div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="form-title text-center ">Admin Login</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-outline">
+            <div class="form-group">
+              <input type="text" id="username" class="form-control" placeholder="Username" name="username" required>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input id="password" [type]="adminFieldTextType ? 'text' : 'password'" class="form-control"
+                  formControlName="password" placeholder="Password" name="password" minlength="8" required />
+                <span class="input-group-btn"><button class="btn btn-outline-secondary"
+                    (click)="adminToggleFieldTextType()">{{adminFieldTextType ?
+                    'Hide Password' : 'Show Password'}}</button></span>
+              </div>
+            </div>
+            <div class="form-group">
+              Not an Admin? <a href="#" title="Forgot Password"  data-toggle="modal" data-target="#loginPage"
+                data-dismiss="modal">Login</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Admin Login</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
