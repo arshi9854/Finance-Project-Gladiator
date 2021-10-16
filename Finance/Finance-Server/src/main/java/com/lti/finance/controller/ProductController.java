@@ -41,5 +41,10 @@ public class ProductController {
 		
 	}
 	
+	@GetMapping("/search/{product_id}")
+	public void searchProduct(@PathVariable("product_id") int productId ) {
+		productService.searchProduct(productId);
+	}
+	
 
 }

@@ -43,4 +43,9 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public Product searchProduct(int productid) {
+		return dao.searchProduct(productid);
+	}
+
 }

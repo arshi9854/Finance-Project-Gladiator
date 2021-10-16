@@ -19,7 +19,7 @@ public class ProductDaoImpl implements ProductDao {
 	private EntityManager em;
 
 	@Override
-	@Transactional()
+	@Transactional
 	public List<Product> getProducts() {
 		String sql ="Select product from Product product";
 		Query query=em.createQuery(sql);
@@ -38,11 +38,21 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	@Transactional
+	public Product searchProduct(int productid) {
+		// TODO Auto-generated method stub
+		Product product = em.find(Product.class,productid);
+		System.out.println(product);
+		return product;
+	}
+	
+	@Override
+	@Transactional
 	public void delProduct(int productid) {
 		// TODO Auto-generated method stub
 		Product product = em.find(Product.class,productid);
+		System.out.println(product);
 		if(product!=null) {
-			em.remove(productid);
+			em.remove(product);
 			System.out.println("PRODUCT DELETED");
 		}
 		else {
