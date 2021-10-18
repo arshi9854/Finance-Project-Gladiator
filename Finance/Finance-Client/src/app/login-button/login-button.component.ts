@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
+import { login_form } from '../shared/interface';
 @Component({
   selector: 'app-login-button',
   templateUrl: './login-button.component.html',
@@ -7,12 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginButtonComponent implements OnInit {
   fieldTextType: boolean = false;
-  adminFieldTextType: boolean = false;
-  password: string = "Password";
-  isClicked:boolean=false;
-  constructor() { }
+  invalidLogin: boolean = false;
+  submitted: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private _formBuilder: FormBuilder, private router: Router, private loginService: LoginService) { }
+
+  ngOnInit(): void { }
+
+  loginForm = this._formBuilder.group({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(12)])
+  })
+
+  get formValidation() {
+    return this.loginForm.controls;
   }
 
   // password peek in login form
@@ -20,13 +31,21 @@ export class LoginButtonComponent implements OnInit {
     this.fieldTextType = !this.fieldTextType;
   }
 
-  adminToggleFieldTextType(){
-    this.adminFieldTextType =  !this.adminFieldTextType;
-  }
 
-  handle_click=()=>{
-    this.isClicked=!this.isClicked
+  onSubmit() {
+
+    let loginData: login_form = {
+      customerUsername: this.loginForm.value.username,
+      customerPassword: this.loginForm.value.password
+    }
+
+    console.log(loginData);
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.loginService.ValidateUser(loginData).subscribe(data => console.log(data), error => console.log(error));
+
   }
 }
 
-//ng add @angular/material
