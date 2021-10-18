@@ -14,7 +14,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FinanceService } from './finance.service';
+import { FinanceService } from './services/finance.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { FinanceService } from './finance.service';
     RegistrationComponent,
     AdminComponent,
     ProductListComponent,
-    
+
   ],
   imports: [
     BrowserModule,

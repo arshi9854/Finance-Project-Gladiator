@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
-import{product_noid,product} from './shared/interface';
+import{product_noid,product} from '../shared/interface';
 @Injectable({
   providedIn: 'root'
 })

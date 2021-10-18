@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinanceService } from '../finance.service';
+import { FinanceService } from '../services/finance.service';
 import { product } from '../shared/interface';
 
 @Component({
@@ -13,16 +13,16 @@ export class ProductListComponent implements OnInit {
 
 
   constructor(private productService:FinanceService) { }
-  
+
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data)=>{
       this.productList=data;
     })
-    
+
   }
 
-  
 
-  
+
+
 
 }

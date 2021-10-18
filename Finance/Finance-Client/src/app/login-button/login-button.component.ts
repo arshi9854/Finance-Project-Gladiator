@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { login_form } from '../shared/interface';
+import { login_form } from '../shared/login';
 @Component({
   selector: 'app-login-button',
   templateUrl: './login-button.component.html',

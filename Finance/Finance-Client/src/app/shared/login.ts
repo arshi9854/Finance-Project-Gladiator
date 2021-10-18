@@ -1,4 +1,4 @@
-export class login{
+export class login_form{
   customerUsername: string="";
     customerPassword: string="";
 }
