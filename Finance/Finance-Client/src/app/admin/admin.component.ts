@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FinanceService } from '../finance.service';
+import { FinanceService } from '../services/finance.service';
 import { product, product_noid } from '../shared/interface';
 
 @Component({
@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private productService:FinanceService,
     private _formBuilder: FormBuilder
-    
+
     ) { }
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit {
   })
 
   onSubmit=()=>{
-    
+
     let productData:product_noid={
     productName:this.productForm.value.productName,
     productCost:this.productForm.value.productCost,

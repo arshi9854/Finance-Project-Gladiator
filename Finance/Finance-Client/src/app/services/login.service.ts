@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { admin_login_form } from '../shared/adminLogin';
-import { login_form } from '../shared/interface';
+import { login_form } from '../shared/login';
 
 @Injectable({
   providedIn: 'root'

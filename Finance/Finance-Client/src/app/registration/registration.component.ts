@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Registration } from '../Registration';
-import { RegistrationService } from '../registration.service';
+import { Registration } from '../shared/Registration';
+import { RegistrationService } from '../services/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,16 +11,16 @@ import { RegistrationService } from '../registration.service';
 })
 export class RegistrationComponent implements OnInit {
   submitted: boolean = false;
-  registration : Registration=new Registration();  
+  registration : Registration=new Registration();
 
-  constructor(private router: Router, 							
+  constructor(private router: Router,
         private registrationService: RegistrationService) { }
 
   ngOnInit(): void {
   }
 
   registrationform=new FormGroup({
-    
+
     Name:new FormControl('',Validators.required),
     Phone_no:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),//pattern
     Email:new FormControl('',[Validators.required]),
@@ -35,8 +35,8 @@ export class RegistrationComponent implements OnInit {
 
 
 
-    
- 
+
+
 
 })
 
@@ -50,22 +50,22 @@ get f(){
 //   this.registrationform.controls.input.markAsTouched();
 // }
 
-// saveUser(registrationform){  
-//   this.registration=new Registration();     
-//   this.registration.customerName=this.Name.value;  
-//   this.registration.Phone_no=this.StudentEmail.value;  
-//   this.registration.Email=this.StudentBranch.value;  
-//   this.registration. Address=this.StudentName.value;  
-//   this.registration.username=this.StudentEmail.value;  
-//   this.registration.password=this.StudentBranch.value; 
-//   this.registration.confirmpassword=this.StudentName.value;  
-//   this.registration.cardType=this.StudentEmail.value;  
-//   this.registration.bank=this.StudentBranch.value; 
-//   this.registration.accountno=this.StudentBranch.value; 
-//   this.registration.ifsc=this.StudentBranch.value; 
-//   this.submitted = true;  
-//   this.submit();  
-// }  
+// saveUser(registrationform){
+//   this.registration=new Registration();
+//   this.registration.customerName=this.Name.value;
+//   this.registration.Phone_no=this.StudentEmail.value;
+//   this.registration.Email=this.StudentBranch.value;
+//   this.registration. Address=this.StudentName.value;
+//   this.registration.username=this.StudentEmail.value;
+//   this.registration.password=this.StudentBranch.value;
+//   this.registration.confirmpassword=this.StudentName.value;
+//   this.registration.cardType=this.StudentEmail.value;
+//   this.registration.bank=this.StudentBranch.value;
+//   this.registration.accountno=this.StudentBranch.value;
+//   this.registration.ifsc=this.StudentBranch.value;
+//   this.submitted = true;
+//   this.submit();
+// }
 
 
 submit() {
@@ -84,14 +84,14 @@ submit() {
 
 
 
-  					console.log(Registration);	
-      this.submitted = true;							
-      if(this.registrationform.invalid){							
-        return;							
-      }	
-  this.registrationService.addUser(Registration)  
-      .subscribe(data => console.log(data), error => console.log(error));  
-      	
+  					console.log(Registration);
+      this.submitted = true;
+      if(this.registrationform.invalid){
+        return;
+      }
+  this.registrationService.addUser(Registration)
+      .subscribe(data => console.log(data), error => console.log(error));
+
 
 }
 }

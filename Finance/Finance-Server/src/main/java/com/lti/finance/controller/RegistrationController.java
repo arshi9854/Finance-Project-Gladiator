@@ -15,6 +15,7 @@ import com.lti.finance.services.RegistrationServiceImpl;
 
 
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("user")
 public class RegistrationController {
@@ -23,7 +24,6 @@ public class RegistrationController {
 	RegistrationServiceImpl registrationService;
 
 	// http://localhost:8091/user/registration
-	@CrossOrigin("*")
 	
 	@PostMapping("/registration")
 	public long addUser(@RequestBody Registration registration) {
