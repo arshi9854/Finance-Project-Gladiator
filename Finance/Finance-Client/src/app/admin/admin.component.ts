@@ -36,6 +36,7 @@ export class AdminComponent implements OnInit {
   })
 
   onSubmit=()=>{
+    
     let productData:product_noid={
     productName:this.productForm.value.productName,
     productCost:this.productForm.value.productCost,

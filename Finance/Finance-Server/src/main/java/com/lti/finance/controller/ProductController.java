@@ -42,8 +42,8 @@ public class ProductController {
 	}
 	
 	@GetMapping("/search/{product_id}")
-	public void searchProduct(@PathVariable("product_id") int productId ) {
-		productService.searchProduct(productId);
+	public Product searchProduct(@PathVariable("product_id") int productId ) {
+		return productService.searchProduct(productId);
 	}
 	
 
