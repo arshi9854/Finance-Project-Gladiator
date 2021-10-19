@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,18 +24,31 @@ public class BuyProductController {
 	
 	@Autowired
 	BuyProductServiceImpl BuyProductService;
-	
+	@GetMapping("/hello")
+	public String hello()
+	{
+		return "hello world";
+	}
 
-	
 	@GetMapping("/{user_id}")
 	public List<BuyProduct> getProductDetailsById(@PathVariable("user_id") long userId ) {
 		return BuyProductService.getProductListById(userId);
 	}
+		
 	
-//	@GetMapping("/")
-//	public List<BuyProduct> getProductDetailsById() {
-//		return BuyProductService.getProductList();
-//	}
+	@PostMapping("/addbuyproduct")
+	public BuyProduct addEmi(@RequestBody BuyProduct buyprod )
+	{
+		System.out.println("inside controller");
+		System.out.println("inside controller" + buyprod);
+		
+		return BuyProductService.addEmi(buyprod);
+		
+	}
+	
+
+	
+	
 	
 	
 

@@ -23,5 +23,15 @@ public class BuyProductServiceImpl implements BuyProductService {
 		List<BuyProduct> products = dao.getProductListById(userId);
 		return products;
 	}
+	
+	public BuyProduct addEmi(BuyProduct buyprod)
+	{
+		BuyProduct emi=dao.addEmi(buyprod);
+		return emi;
+	}
+	public List<BuyProduct> getBuyProductListById(long userId) {
+		List<BuyProduct> products = dao.getBuyProductListById(userId);
+		return products;
+	}
 
 }

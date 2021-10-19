@@ -46,6 +46,8 @@ export class AdminComponent implements OnInit {
 
     this.productService.addProducts(productData).subscribe((data)=>{
       console.log(data);
+      confirm("Product added successfully");
+      this.productForm.reset();
     })
   }
 

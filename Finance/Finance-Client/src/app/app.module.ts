@@ -10,11 +10,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { RegistrationComponent } from './registration/registration.component';
 import { AdminComponent } from './admin/admin.component';
-import { ProductListComponent } from './product-list/product-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FinanceService } from './services/finance.service';
+import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FinanceService } from './services/finance.service';
     ForgotPasswordComponent,
     RegistrationComponent,
     AdminComponent,
-    ProductListComponent,
+    ProductDashboardComponent,
+    BuyProductComponent,
+    AdminLoginComponent,
+    NavbarComponent
 
   ],
   imports: [
@@ -39,4 +45,6 @@ import { FinanceService } from './services/finance.service';
   providers: [FinanceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

@@ -38,6 +38,16 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 		// TODO Auto-generated method stub
 		return dao.addCardDetails(card);
 	}
+	@Override
+	public boolean updateCardDetails(long cardNo,String CardType) {
+		return dao.updateCardDetails(cardNo,CardType);
+	}
+	@Override
+	public long findBalanceByUserId(long user_id,int product_price) {
+		return dao.findBalanceByUserId(user_id,product_price);
+	}
+	
+	
 
 	
 

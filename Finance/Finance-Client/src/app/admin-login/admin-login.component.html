@@ -9,7 +9,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="">
+      <form action="" [formGroup]="adminLoginForm">
         <div class="modal-body">
           <div class="form-outline">
             <div class="form-group">
@@ -45,7 +45,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" [disabled]="!adminLoginForm.valid" (click)="adminOnSubmit()">Admin Login</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!adminLoginForm.valid" (click)="adminOnSubmit()">Admin Login</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </form>

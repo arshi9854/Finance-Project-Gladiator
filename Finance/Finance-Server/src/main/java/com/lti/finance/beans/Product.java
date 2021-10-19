@@ -13,7 +13,7 @@ public class Product {
 	@Id
 	@Column(name="product_id")
 	@GeneratedValue(generator="product_id_seq")
-	@SequenceGenerator(name="product_id_seq",sequenceName="product_id_seq", allocationSize=100)
+	@SequenceGenerator(name="product_id_seq",sequenceName="product_id_seq", allocationSize=1)
 	private int productId;
 	
 	@Column(name="product_name")

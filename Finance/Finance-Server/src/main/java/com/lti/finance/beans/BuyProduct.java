@@ -20,7 +20,7 @@ public class BuyProduct {
 	@Id
 	@Column(name="transaction_id")
 	@GeneratedValue(generator="TRANSACTION_ID_SEQ")
-	@SequenceGenerator(name="TRANSACTION_ID_SEQ",sequenceName="TRANSACTION_ID_SEQ", allocationSize=100)
+	@SequenceGenerator(name="TRANSACTION_ID_SEQ",sequenceName="TRANSACTION_ID_SEQ", allocationSize=1)
 	private long transactionId;
 	
 	@Column(name="user_id")

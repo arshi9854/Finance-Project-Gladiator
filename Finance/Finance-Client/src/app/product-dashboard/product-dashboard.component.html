@@ -1,0 +1,41 @@
+
+<div class="product">
+    <div class="product_functions">
+    <div class="product_functions--search">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search For Products" (input)="filter_users()" [(ngModel)]="filterdata">
+    </div>
+    </div>
+
+    <div class="product_functions--sort">
+    <select class="form-select" name="sort" id="sort" aria-label="Default select example" [(ngModel)]="sort_by" (change)="handleSort()">
+      <option value="" selected disabled>Sort By</option>
+      <option value="Price">Price</option>
+      <option value="Name">Name</option>
+    </select>
+    </div>
+    
+    <div class="product_functions--profile">
+    <button class="btn btn-outline-primary" type="button" (click)="take_to_profile()">My Profile</button>
+    </div>
+
+</div>
+
+
+    <div class="product_table">
+    <div *ngFor="let product of productList" >
+        <div class="card" style="width: 18rem;">
+            <img src="{{product.productImage}}" class="card-img-top" alt="product image"/>
+            <div class="card-body">
+              <h3 class="card-title">{{product.productName}}</h3>
+              <div class="same-row">
+              <h5 class="card-title">Price:</h5>
+              <p class="card-text">&#x20B9;{{product.productCost}} </p>
+              </div>
+              <button  class="btn btn-primary" (click)="handle_buynow(product.productId)">Buy Now</button>
+            </div>
+          </div>
+    </div>
+    </div>
+
+  </div>

@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPage">
+<button style="width:100px;"type="button" class="btn btn-outline-light btn-style" data-toggle="modal" data-target="#loginPage">
   <!--change data target here-->
   Login
 </button>
@@ -57,7 +57,7 @@
         <div class="modal-footer">
           <button class="btn btn-light float-left "><a title="Admin Login" data-toggle="modal" data-dismiss="modal"
               data-target="#adminLogin">Admin</a></button>
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid"  (click)="onSubmit()">Login</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!loginForm.valid"  (click)="onSubmit()">Login</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </form>

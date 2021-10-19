@@ -17,7 +17,7 @@ public class CardDetails {
 	@Id
 	@Column(name="CARD_NO")
 	@GeneratedValue(generator="CARD_NUMBER_SEQ")
-	@SequenceGenerator(name="CARD_NUMBER_SEQ",sequenceName="CARD_NUMBER_SEQ", allocationSize=1000)
+	@SequenceGenerator(name="CARD_NUMBER_SEQ",sequenceName="CARD_NUMBER_SEQ", allocationSize=1)
 	private long cardNo;
 	@Column(name="VALIDITY")
 	@Temporal(TemporalType.DATE)
@@ -26,16 +26,15 @@ public class CardDetails {
 	private String cardType;
 	@Column(name="TOTAL")
 	private int total;
-	public long getCardNo() {
-		return cardNo;
-	}
-	public void setCardNo(long cardNo) {
-		this.cardNo = cardNo;
-	}
 	@Column(name="BALANCE")
 	private int balance;
 	@Column(name="user_id")
 	private long userId;
+	
+	public CardDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public CardDetails(Date validity, String cardType, int total, int balance, long userId) {
 		super();
@@ -45,16 +44,19 @@ public class CardDetails {
 		this.balance = balance;
 		this.userId = userId;
 	}
+	public long getCardNo() {
+		return cardNo;
+	}
+	public void setCardNo(long cardNo) {
+		this.cardNo = cardNo;
+	}
 	public long getUserId() {
 		return userId;
 	}
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public CardDetails() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public Date getValidity() {
 		return validity;

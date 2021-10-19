@@ -1,0 +1,53 @@
+.product{
+    display:flex;
+    flex-direction:column;
+    margin-top: 30px;
+
+        &_functions{
+            display:flex;
+            justify-content: space-around;
+            &--search{
+                width:50%;
+                
+            }
+
+            &--sort{
+                width:15%;
+                
+
+            }
+
+            &--profile{
+
+            }
+
+        }
+
+        &_table{
+            animation:moveInRight;
+            animation-duration:2s;
+            margin-left:50px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap:30px;
+            gap:30px;
+        }
+        
+}
+
+@keyframes moveInRight{
+    0%{
+        opacity:0;
+        transform: translateX(100px);
+    }
+    80%{
+        opacity: .8;
+        transform: translateX(-10px);
+
+    }
+    100%{
+        opacity: 1;
+        transform:translat(0);
+
+    }
+}

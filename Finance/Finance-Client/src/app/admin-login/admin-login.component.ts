@@ -13,8 +13,10 @@ export class AdminLoginComponent implements OnInit {
   adminFieldTextType: boolean = false;
   invalidLogin: boolean = false;
   submitted: boolean = false;
+  validAdminWithId: number=0;
+  adminId: any;
 
-  constructor(private _formBuilder: FormBuilder, private _router: Router, private adminLoginService: AdminLoginService) { }
+  constructor(private _formBuilder: FormBuilder, private router: Router, private adminLoginService: AdminLoginService) { }
 
   ngOnInit(): void { }
 
@@ -43,9 +45,22 @@ export class AdminLoginComponent implements OnInit {
     if (this.adminLoginForm.invalid) {
       return;
     }
-    this.adminLoginService.validateAdmin(adminLoginData).subscribe(data => console.log(data), error => console.log(error));
+    this.adminLoginService.validateAdmin(adminLoginData).subscribe(data =>{
+
+      if(JSON.stringify(data)!="0"){
+        sessionStorage.setItem("validAdminWithId",JSON.stringify(data))
+        console.log(data);
+        this.router.navigateByUrl("/admin")
+      }
+      else{
+        confirm("Enter valid Admin Name and password!")
+      }
+
+    } , error => console.log(error));
+ 
+    
 
   }
 }
 
-  // localStorage.setItem("admin_name", this.adminLoginForm.controls.admin_name.value);
+  

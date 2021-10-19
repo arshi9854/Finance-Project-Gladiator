@@ -20,7 +20,7 @@ public class Registration {
 	
 	@Id
 	@GeneratedValue(generator="user_id")
-	@SequenceGenerator(name="user_id",sequenceName="USER_ID_SEQUENCE",allocationSize=1)
+	@SequenceGenerator(name="user_id",sequenceName="USER_ID_SEQ",allocationSize=1)
 	@Column(name="USER_ID")
 	private long userId;
 	
