@@ -12,4 +12,5 @@ public interface RegistrationService {
 	public long addUser(Registration e);
 	public List<Registration> viewUsers();
 	public String approveUser(long userId);
+	public boolean checkActivation(long userId);
 }

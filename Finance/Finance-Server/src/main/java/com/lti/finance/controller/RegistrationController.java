@@ -3,6 +3,8 @@ package com.lti.finance.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,11 @@ public class RegistrationController {
 	@PostMapping("/registration")
 	public long addUser(@RequestBody Registration registration) {
 		return registrationService.addUser(registration);
+	}
+	
+	@GetMapping("/check-activation/{user-id}")
+	public boolean checkActivation(@PathVariable(value = "user-id") long userId) {
+		return registrationService.checkActivation(userId);
 	}
 
 }

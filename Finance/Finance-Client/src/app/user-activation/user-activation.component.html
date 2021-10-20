@@ -24,7 +24,8 @@
           <td>{{user.customerUsername}}</td>
           <td>{{user.customerAddress}}</td>
           <td>{{user.cardType}}</td>
-          <td><button class="btn btn-success">Activate</button></td>
+          <td>{{user.activation}}</td>
+          <td><button class="btn btn-success" (click)="handle_userid_activation(user.userId)" [disabled] = "user.activation== 'true'">Activate</button></td>
           <td><button type="button" class="btn btn-secondary">Update</button></td>
           <td><button type="button" class="btn btn-danger">Delete</button></td>
         </tr>
