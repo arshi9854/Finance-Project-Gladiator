@@ -10,88 +10,91 @@ import { RegistrationService } from '../services/registration.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  submitted: boolean = false;
-  registration : Registration=new Registration();
+  submitted: boolean = false;
+  registration: Registration = new Registration();
+  // public uploader: FileUploader = new FileUploader({url:UploadURL, itemAlias: 'file'});
 
-  constructor(private router: Router,
-        private registrationService: RegistrationService) { }
+
+  constructor(private router: Router,
+    private registrationService: RegistrationService) { }
 
   ngOnInit(): void {
+
+    // this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    // this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+    //      console.log('FileUpload:uploaded:', item, status, response);
+    //      alert('File uploaded successfully');
+    //  };
   }
 
-  registrationform=new FormGroup({
 
-    Name:new FormControl('',Validators.required),
-    Phone_no:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),//pattern
-    Email:new FormControl('',[Validators.required]),
-      Address:new FormControl('',[Validators.required]),
-      username:new FormControl('',[Validators.required]),
-      password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
-      confirmpassword:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(12)]),//pattern
-      cardType:new FormControl('',Validators.required),
-      bank:new FormControl('',Validators.required),
-      accountno:new FormControl('',[Validators.required,Validators.minLength(11),Validators.maxLength(11)]),
-      ifsc:new FormControl('',[Validators.required])
+  registrationform = new FormGroup({
 
-
-
-
-
-
-})
-
-get f(){
-
-  return this.registrationform.controls;
-
-}
-
-// onSubmit() {
-//   this.registrationform.controls.input.markAsTouched();
-// }
-
-// saveUser(registrationform){
-//   this.registration=new Registration();
-//   this.registration.customerName=this.Name.value;
-//   this.registration.Phone_no=this.StudentEmail.value;
-//   this.registration.Email=this.StudentBranch.value;
-//   this.registration. Address=this.StudentName.value;
-//   this.registration.username=this.StudentEmail.value;
-//   this.registration.password=this.StudentBranch.value;
-//   this.registration.confirmpassword=this.StudentName.value;
-//   this.registration.cardType=this.StudentEmail.value;
-//   this.registration.bank=this.StudentBranch.value;
-//   this.registration.accountno=this.StudentBranch.value;
-//   this.registration.ifsc=this.StudentBranch.value;
-//   this.submitted = true;
-//   this.submit();
-// }
+    Name: new FormControl('', Validators.required),
+    Phone_no: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),//pattern
+    Email: new FormControl('', [Validators.required]),
+    Address: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),//pattern
+    confirmpassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),//validate
+    cardType: new FormControl('', Validators.required),
+    bank: new FormControl('', Validators.required),
+    accountno: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
+    ifsc: new FormControl('', [Validators.required]),//pattern
+    owner: new FormControl('', Validators.required),
+    cvv: new FormControl('', Validators.required),
+    cardnumber: new FormControl('', Validators.required),
+    expiry: new FormControl('', Validators.required)
 
 
-submit() {
-  let Registration= { customerName:this.registrationform.value.Name,
-    customerPhone:this.registrationform.value.Phone_no,
-    customerEmail:this.registrationform.value.Email,
-    customerUsername:this.registrationform.value.username,
-    customerPassword:this.registrationform.value.password,
-    customerAddress:this.registrationform.value.Address,
-    cardType:this.registrationform.value.cardType,
-    customerBank:this.registrationform.value.bank,
-    customerAccountNo:this.registrationform.value.accountno,
-    customerIfsc:this.registrationform.value.ifsc,
-    activation:"False",
+
+
+
+
+
+  }
+  )
+
+
+
+  get f() {
+
+    return this.registrationform.controls;
+
+  }
+
+  onSubmit() {
+    this.registrationform.controls.input.markAsDirty();
   }
 
 
 
-  					console.log(Registration);
-      this.submitted = true;
-      if(this.registrationform.invalid){
-        return;
-      }
-  this.registrationService.addUser(Registration)
+
+  submit() {
+    let registration: Registration = {
+      customerName: this.registrationform.value.Name,
+      customerPhone: this.registrationform.value.Phone_no,
+      customerEmail: this.registrationform.value.Email,
+      customerUsername: this.registrationform.value.username,
+      customerPassword: this.registrationform.value.password,
+      customerAddress: this.registrationform.value.Address,
+      cardType: this.registrationform.value.cardType,
+      customerBank: this.registrationform.value.bank,
+      customerAccountNo: this.registrationform.value.accountno,
+      customerIfsc: this.registrationform.value.ifsc,
+      activation: "false",
+    }
+
+
+
+    console.log(registration);
+    this.submitted = true;
+    if (this.registrationform.invalid) {
+      return;
+    }
+    this.registrationService.addUser(registration)
       .subscribe(data => console.log(data), error => console.log(error));
 
 
-}
+  }
 }

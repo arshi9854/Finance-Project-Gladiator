@@ -7,14 +7,19 @@ import { allUsers } from '../shared/user-details';
 })
 export class UserDetailsService {
 
-  BaseUrl:string="http://localhost:8282/admin";
+  BaseUrl:string="http://localhost:8282";
   constructor(private _http:HttpClient) { }
 
   getProducts=()=>{
-     return this._http.get<allUsers[]>(this.BaseUrl+"/all-users");
+     return this._http.get<allUsers[]>(this.BaseUrl+"/admin/all-users");
   }
 
   user_activation=(userId: number)=>{
-    return this._http.get(this.BaseUrl+"/approve-user/"+userId);
+    return this._http.get(this.BaseUrl+"/admin/approve-user/"+userId);
   }
+
+  user_deletion=(userId: number) =>{
+    return this._http.get(this.BaseUrl+"/user/delete-user/"+userId);
+  }
+
 }

@@ -28,8 +28,14 @@ export class UserActivationComponent implements OnInit {
   handle_userid_activation=(userId: number)=>{
     console.log(userId)
     this.detailService.user_activation(userId).subscribe()
-    this.router.navigate(["UserActivationComponent"]);
     confirm("Are you Sure?")
+    window.location.reload();
   }
 
+  handle_userid_deletion(userId: number){
+    console.log(userId)
+    this.detailService.user_deletion(userId).subscribe()
+    confirm("Are you Sure?")
+    window.location.reload();
+  }
 }

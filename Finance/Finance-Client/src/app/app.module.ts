@@ -19,6 +19,7 @@ import { BuyProductComponent } from './buy-product/buy-product.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
-    UserActivationComponent
+    UserActivationComponent,
+    UpdateUserComponent
 
   ],
   imports: [
