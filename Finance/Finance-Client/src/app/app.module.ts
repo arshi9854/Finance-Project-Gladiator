@@ -19,6 +19,8 @@ import { BuyProductComponent } from './buy-product/buy-product.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UserActivationComponent } from './user-activation/user-activation.component';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
-    HomePageComponent
-
+    HomePageComponent,
+    UserActivationComponent
   ],
   imports: [
     BrowserModule,

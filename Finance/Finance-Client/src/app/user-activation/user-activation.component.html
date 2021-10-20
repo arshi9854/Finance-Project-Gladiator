@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="user-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Address</th>
+          <th>Card Type</th>
+          <th>Activation</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of userList">
+        <tr>
+          <td>{{user.userId}}</td>
+          <td>{{user.customerName}}</td>
+          <td>{{user.customerPhone}}</td>
+          <td>{{user.customerEmail}}</td>
+          <td>{{user.customerUsername}}</td>
+          <td>{{user.customerAddress}}</td>
+          <td>{{user.cardType}}</td>
+          <td>{{user.activation}}</td>
+          <td><button class="btn btn-success" (click)="handle_userid_activation(user.userId)" [disabled] = "user.activation== 'true'">Activate</button></td>
+          <td><button type="button" class="btn btn-secondary">Update</button></td>
+          <td><button type="button" class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

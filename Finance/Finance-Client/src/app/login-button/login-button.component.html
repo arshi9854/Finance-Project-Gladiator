@@ -1,4 +1,5 @@
-<button style="width:100px;"type="button" class="btn btn-outline-light btn-style" data-toggle="modal" data-target="#loginPage">
+<button style="width:100px;" type="button" class="btn btn-outline-light btn-style" data-toggle="modal"
+  data-target="#loginPage">
   <!--change data target here-->
   Login
 </button>
@@ -30,24 +31,25 @@
             <div class="form-group">
               <div class="input-group">
                 <input id="password" [type]="fieldTextType ? 'text' : 'password'" class="form-control"
-                  formControlName="password" placeholder="Password" name="password" minlength="8" required />
+                  formControlName="password" placeholder="Password" name="password" minlength="8" maxlength="12"
+                  [class.invalid]="formValidation.password.invalid && formValidation.password.touched" required />
                 <span class="input-group-btn"><button class="btn btn-outline-secondary"
                     (click)="toggleFieldTextType()">{{fieldTextType ?
                     'Hide Password' : 'Show Password'}}</button></span>
               </div>
-              <div *ngIf="(formValidation.password.dirty || formValidation.password.touched)"
-                class="alert alert-danger">
-                <a *ngIf="formValidation.password?.errors?.required"> Password is not Valid</a>
-                <a *ngIf="formValidation.password?.errors?.minlength">Minimum length of password is 8.</a>
-                <a *ngIf="formValidation.password?.errors?.maxlength">Maximum length of password is 12.</a>
+              <div >
+                <div class="alert alert-danger" *ngIf="formValidation.password?.errors?.required"> Password is not Valid</div>
+                <div class="alert alert-danger" *ngIf="formValidation.password?.errors?.minlength">Minimum length of password is 8.</div>
+                <div class="alert alert-danger" *ngIf="formValidation.password?.errors?.maxlength">Maximum length of password is 12.</div>
               </div>
             </div>
             <div class="form-group">
               <a href="" title="Forgot Password" data-toggle="modal" data-dismiss="modal"
                 data-target="#forgotPassword">Forgot
                 Password?</a><br>
-              Not a member yet? 
-              <a href="" title="Become A Member." data-target="#registerpage"> Sign Up</a>
+              Not a member yet? <a href="#" title="Sign Up" data-toggle="modal" data-target="#registerpage"
+                data-dismiss="modal">Sign Up</a>
+
             </div>
           </div>
           <div *ngIf="invalidLogin" class="error">
@@ -58,7 +60,8 @@
         <div class="modal-footer">
           <button class="btn btn-light float-left "><a title="Admin Login" data-toggle="modal" data-dismiss="modal"
               data-target="#adminLogin">Admin</a></button>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!loginForm.valid"  (click)="onSubmit()">Login</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!loginForm.valid"
+            (click)="onSubmit()">Login</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </form>

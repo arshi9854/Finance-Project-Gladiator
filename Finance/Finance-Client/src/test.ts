@@ -25,3 +25,11 @@ getTestBed().initTestEnvironment(
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
+
+
+
+// "node_modules/bootstrap/dist/css/bootstrap.min.css",
+// "node_modules/bootstrap/dist/css/bootstrap.css",
+//   "node_modules/jquery/dist/jquery.min.js",
+//   "node_modules/popper.js/dist/umd/popper.js",
+//   "node_modules/bootstrap/dist/js/bootstrap.min.js"

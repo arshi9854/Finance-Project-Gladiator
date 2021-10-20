@@ -1,5 +1,6 @@
 <!-- Button trigger modal -->
-<button  style="width:100px;" type="button" class="btn btn-outline-light btn-style" data-toggle="modal" data-target="#registerpage">
+<button style="width:100px;" type="button" class="btn btn-outline-light btn-style" data-toggle="modal"
+  data-target="#registerpage">
   <!--change data target here-->
   Register
 </button>
@@ -20,9 +21,9 @@
           <div class="form-outline">
             <div class="form-group">
               <div class="mb-3 input-group">
-              <label class="input-group-text" for="name">Name</label>
-              <input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name"
-                formControlName="Name" [class.is-invalid]="f.Name.errors?.invalid && f.Name.errors?.touched">
+                <label class="input-group-text" for="name">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name"
+                  formControlName="Name" [class.is-invalid]="f.Name.errors?.invalid && f.Name.errors?.touched">
               </div>
               <div>
                 <small class="text-danger" *ngIf="f.Name.errors?.required">Name is required</small>
@@ -39,45 +40,46 @@
 
 
           <div class="input-group">
-            
+
             <label class="input-group-text" for="phoneno">Phone Number</label>
             <input id="phoneno" type="number" class="form-control" aria-describedby="basic-addon2"
               formControlName="Phone_no" placeholder="Enter your phone number" name="phoneno"
               [class.invalid]="f.Phone_no.invalid && f.Phone_no.touched">
-            </div>
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.Name.errors?.required">Phone Number is required</small>
-              <small class="text-danger" *ngIf="f.Name.errors?.minlength">Invalid Phone Number</small>
-              <small class="text-danger" *ngIf="f.Name.errors?.maxlength">Invalid Phone Number</small>
-            </div>
+          <div>
+            <small class="text-danger" *ngIf="f.Name.errors?.required">Phone Number is required</small>
+            <small class="text-danger" *ngIf="f.Name.errors?.minlength">Invalid Phone Number</small>
+            <small class="text-danger" *ngIf="f.Name.errors?.maxlength">Invalid Phone Number</small>
+          </div>
 
           <br><br>
 
 
           <div class="input-group">
-            
-            <label class="input-group-text" for="email">Email</label><input id="email" type="email" class="form-control" aria-describedby="basic-addon2"
-              formControlName="Email" placeholder="Enter your Email id" name="email">
-            </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.Email?.errors?.required">Email is required</small>
-              <small class="text-danger" *ngIf="f.Email?.errors?.pattern">Invalid Email</small>
-            </div>
+            <label class="input-group-text" for="email">Email</label><input id="email" type="email" class="form-control"
+              aria-describedby="basic-addon2" formControlName="Email" placeholder="Enter your Email id" name="email">
+          </div>
+
+          <div>
+            <small class="text-danger" *ngIf="f.Email?.errors?.required">Email is required</small>
+            <small class="text-danger" *ngIf="f.Email?.errors?.pattern">Invalid Email</small>
+          </div>
 
           <br><br>
 
           <div class="input-group">
-            <label class="input-group-text" for="address">Address</label><input id="address" type="text" class="form-control" aria-describedby="basic-addon2"
-              formControlName="Address" placeholder="Enter your Address" name="address">
-            </div>
+            <label class="input-group-text" for="address">Address</label><input id="address" type="text"
+              class="form-control" aria-describedby="basic-addon2" formControlName="Address"
+              placeholder="Enter your Address" name="address">
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.Address?.errors?.required">Address is required</small>
+          <div>
+            <small class="text-danger" *ngIf="f.Address?.errors?.required">Address is required</small>
 
 
-            </div>
+          </div>
 
           <br><br>
 
@@ -85,12 +87,12 @@
             <label class="input-group-text" for="username">UserName</label>
             <input id="username" type="text" class="form-control" aria-describedby="basic-addon2"
               formControlName="username" placeholder="Enter your Username" name="username">
-            </div>
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.username?.errors?.required">Username is required</small>
+          <div>
+            <small class="text-danger" *ngIf="f.username?.errors?.required">Username is required</small>
 
-            </div>
+          </div>
 
           <br><br>
 
@@ -98,39 +100,39 @@
             <label class="input-group-text" for="password">Password</label>
             <input id="password" type="password" class="form-control" aria-describedby="basic-addon2"
               formControlName="password" placeholder="Enter your password" name="password">
-            </div>
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.password.errors?.required">Password is required</small>
-              <small class="text-danger" *ngIf="f.password.errors?.minlength">Invalid Password</small>
-              <small class="text-danger" *ngIf="f.password.errors?.maxlength">Invalid Password</small>
+          <div>
+            <small class="text-danger" *ngIf="f.password.errors?.required">Password is required</small>
+            <small class="text-danger" *ngIf="f.password.errors?.minlength">Invalid Password</small>
+            <small class="text-danger" *ngIf="f.password.errors?.maxlength">Invalid Password</small>
 
 
-            </div>
+          </div>
 
-         <br><br>
+          <br><br>
 
           <div class="input-group">
-            <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword" type="password" class="form-control"
-              aria-describedby="basic-addon2" formControlName="confirmpassword" placeholder="confirm password"
-              name="confirmpassword">
-            </div>
+            <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword"
+              type="password" class="form-control" aria-describedby="basic-addon2" formControlName="confirmpassword"
+              placeholder="confirm password" name="confirmpassword">
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.confirmpassword.errors?.required">Password is required</small>
-              <small class="text-danger" *ngIf="f.confirmpassword.errors?.minlength">Invalid Password</small>
-              <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
+          <div>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.required">Password is required</small>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.minlength">Invalid Password</small>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
 
 
-            </div>
+          </div>
 
           <br><br>
 
 
 
           <div class="input-group mb-3">
-            <label class="input-group-text" for="cardType">CardType</label><select placeholder="select Your card type" id="cardType" name="cardType"
-              formControlName="cardType" class="form-control">
+            <label class="input-group-text" for="cardType">CardType</label><select placeholder="select Your card type"
+              id="cardType" name="cardType" formControlName="cardType" class="form-control">
               <option>Gold</option>
               <option>Titanium</option>
             </select>
@@ -138,47 +140,47 @@
           </div><br><br>
           <div class="input-group ">
             <label class="input-group-text" for="bank">Bank</label>
-          <select placeholder="select bank" id="bank" name="bank" formControlName="bank"
-            class="form-control">
-            <option>IDBI</option>
-            <option>ICICI</option>
-            <option>State Bank of India</option>
-            <option>Jammu and Kashmir Bank</option>
-            <option>Karnataka Bank Ltd</option>
-            <option>HDFC Bank</option>
-            <option>Axis Bank</option>
-          </select>
+            <select placeholder="select bank" id="bank" name="bank" formControlName="bank" class="form-control">
+              <option>IDBI</option>
+              <option>ICICI</option>
+              <option>State Bank of India</option>
+              <option>Jammu and Kashmir Bank</option>
+              <option>Karnataka Bank Ltd</option>
+              <option>HDFC Bank</option>
+              <option>Axis Bank</option>
+            </select>
           </div>
 
           <br><br>
 
 
           <div class="input-group">
-            <label class="input-group-text" for="acctno">Account Number</label><input id="accntno" type="number" class="form-control"
-              aria-describedby="basic-addon2" formControlName="accountno" placeholder="Enter Account number"
-              name="accntno">
-            </div>
+            <label class="input-group-text" for="acctno">Account Number</label><input id="accntno" type="number"
+              class="form-control" aria-describedby="basic-addon2" formControlName="accountno"
+              placeholder="Enter Account number" name="accntno">
+          </div>
 
-            <div>
-              <small class="text-danger" *ngIf="f.accountno.errors?.required">Account Number is required</small>
-              <small class="text-danger" *ngIf="f.accountno.errors?.minlength">Invalid Account number</small>
-              <small class="text-danger" *ngIf="f.accountno.errors?.maxlength">Invalid Account number</small>
+          <div>
+            <small class="text-danger" *ngIf="f.accountno.errors?.required">Account Number is required</small>
+            <small class="text-danger" *ngIf="f.accountno.errors?.minlength">Invalid Account number</small>
+            <small class="text-danger" *ngIf="f.accountno.errors?.maxlength">Invalid Account number</small>
 
 
-            </div>
+          </div>
 
-         <br><br>
+          <br><br>
 
 
           <div class="input-group ">
-            <label class="input-group-text" for="ifsc">IFSC code:</label><input id="ifsc" type="text" class="form-control" aria-describedby="basic-addon2"
-              formControlName="ifsc" placeholder="Enter IFSC code" name="ifsc">
-            </div>
-            <div>
-              <small class="text-danger" *ngIf="f.ifsc?.errors?.required">IFSC code is required</small>
-              <small class="text-danger" *ngIf="f.ifsc?.errors?.pattern">Invalid IFSC code</small>
+            <label class="input-group-text" for="ifsc">IFSC code:</label><input id="ifsc" type="text"
+              class="form-control" aria-describedby="basic-addon2" formControlName="ifsc" placeholder="Enter IFSC code"
+              name="ifsc">
+          </div>
+          <div>
+            <small class="text-danger" *ngIf="f.ifsc?.errors?.required">IFSC code is required</small>
+            <small class="text-danger" *ngIf="f.ifsc?.errors?.pattern">Invalid IFSC code</small>
 
-            </div>
+          </div>
 
           <br><br>
 
@@ -188,13 +190,11 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button><br><br>
 
             <div class="form-group">
-              <button type="button" data-dismiss="modal" class="btn btn-link" data-toggle="modal" data-target="#loginPage">
+              <button type="button" data-dismiss="modal" class="btn btn-link" data-toggle="modal"
+                data-target="#loginPage">
                 <!--change data target here-->
                 Already Registered?
               </button>
 
             </div>
           </div>
-
-
-
