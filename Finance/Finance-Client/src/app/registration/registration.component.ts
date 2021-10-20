@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormControl, FormGroup,  Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Registration } from '../shared/Registration';
 import { RegistrationService } from '../services/registration.service';
@@ -12,12 +12,21 @@ import { RegistrationService } from '../services/registration.service';
 export class RegistrationComponent implements OnInit {
   submitted: boolean = false;
   registration : Registration=new Registration();
+  // public uploader: FileUploader = new FileUploader({url:UploadURL, itemAlias: 'file'});
+
 
   constructor(private router: Router,
         private registrationService: RegistrationService) { }
 
   ngOnInit(): void {
+
+    // this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    // this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+    //      console.log('FileUpload:uploaded:', item, status, response);
+    //      alert('File uploaded successfully');
+    //  };
   }
+  
 
   registrationform=new FormGroup({
 
@@ -27,18 +36,26 @@ export class RegistrationComponent implements OnInit {
       Address:new FormControl('',[Validators.required]),
       username:new FormControl('',[Validators.required]),
       password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
-      confirmpassword:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(12)]),//pattern
+      confirmpassword:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
       cardType:new FormControl('',Validators.required),
       bank:new FormControl('',Validators.required),
       accountno:new FormControl('',[Validators.required,Validators.minLength(11),Validators.maxLength(11)]),
-      ifsc:new FormControl('',[Validators.required])
+      ifsc:new FormControl('',[Validators.required]),
+      owner:new FormControl('',Validators.required),
+      cvv:new FormControl('',Validators.required),
+      cardnumber:new FormControl('',Validators.required),
+      expiry:new FormControl('',Validators.required)
 
 
 
 
 
 
-})
+
+}
+)
+
+
 
 get f(){
 
@@ -46,9 +63,9 @@ get f(){
 
 }
 
-// onSubmit() {
-//   this.registrationform.controls.input.markAsTouched();
-// }
+onSubmit() {
+  this.registrationform.controls.input.markAsDirty();
+}
 
 // saveUser(registrationform){
 //   this.registration=new Registration();

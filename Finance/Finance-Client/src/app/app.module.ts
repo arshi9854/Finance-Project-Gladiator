@@ -20,6 +20,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,8 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
     AdminLoginComponent,
     NavbarComponent,
     UserActivationComponent
+    
+    
 
   ],
   imports: [
