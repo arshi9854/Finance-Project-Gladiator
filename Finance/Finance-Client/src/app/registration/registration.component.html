@@ -16,24 +16,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form [formGroup]="registrationform"  >
+      <form [formGroup]="registrationform">
         <div class="modal-body">
           <div class="form-outline">
             <div class="form-group">
               <div class="mb-3 input-group">
-                <label class="input-group-text" for="name">Name</label>
-                <input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name"
-                  formControlName="Name" [class.is-invalid]="f.Name.errors?.invalid && f.Name.errors?.touched">
+              <label class="input-group-text" for="name">Name</label>
+              <input type="text" id="Name" class="form-control" placeholder="Enter your Name" name="name"
+                formControlName="Name" [class.is-invalid]="f.Name.errors?.invalid && f.Name.errors?.touched">
               </div>
-              <div>
+              <!-- <div>
                 <small class="text-danger" *ngIf="f.Name.errors?.required">Name is required</small>
-              </div>
-
-
-
-
-
-
+              </div> -->
+              <div
+              *ngIf="registrationform.get('Name')?.errors?.required && (registrationform.get('Name')?.dirty || registrationform.get('Name')?.touched)"
+              class="alert alert-danger">
+              Name is required.
+            </div>
             </div>
           </div><br>
           <!-- <div class="form-group"> -->
@@ -47,25 +46,37 @@
               [class.invalid]="f.Phone_no.invalid && f.Phone_no.touched">
           </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.Name.errors?.required">Phone Number is required</small>
-            <small class="text-danger" *ngIf="f.Name.errors?.minlength">Invalid Phone Number</small>
-            <small class="text-danger" *ngIf="f.Name.errors?.maxlength">Invalid Phone Number</small>
-          </div>
+
+            <div
+              *ngIf="(registrationform.get('Phone_no')?.dirty || 
+              registrationform.get('Phone_no')?.touched)"
+              class="alert alert-danger">
+              <div *ngIf="registrationform.get('Phone_no')?.errors?.required"> Phone is required</div>
+              <div *ngIf="registrationform.get('Phone_no')?.errors?.minlength">Minimum length of password is 8.</div>
+              <div *ngIf="registrationform.get('Phone_no')?.errors?.maxlength">Maximum length of password is 12.</div>
+              <div *ngIf="registrationform.get('Phone_no')?.errors?.pattern">Invalid Phone Number</div>
+              
+            </div>
+
+
+            
 
           <br><br>
 
 
           <div class="input-group">
-
-            <label class="input-group-text" for="email">Email</label><input id="email" type="email" class="form-control"
+              <label class="input-group-text" for="email">Email</label><input id="email" type="email" class="form-control"
               aria-describedby="basic-addon2" formControlName="Email" placeholder="Enter your Email id" name="email">
-          </div>
+        </div>
+            <div
+              *ngIf="(registrationform.get('Email')?.dirty || 
+              registrationform.get('Email')?.touched)"
+              class="alert alert-danger">
+              <div *ngIf="registrationform.get('Email')?.errors?.required">Email is not Valid</div>
+              
+              <!-- <a *ngIf="registrationform.get('Email')?.errors?.pattern">Invalid Email</a> -->
+            </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.Email?.errors?.required">Email is required</small>
-            <small class="text-danger" *ngIf="f.Email?.errors?.pattern">Invalid Email</small>
-          </div>
 
           <br><br>
 
@@ -75,11 +86,14 @@
               placeholder="Enter your Address" name="address">
           </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.Address?.errors?.required">Address is required</small>
 
+            <div
+              *ngIf="registrationform.get('Address')?.errors?.required && (registrationform.get('Address')?.dirty ||
+               registrationform.get('Address')?.touched)"
+              class="alert alert-danger">
+              Address is required.
+            </div>
 
-          </div>
 
           <br><br>
 
@@ -89,10 +103,14 @@
               formControlName="username" placeholder="Enter your Username" name="username">
           </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.username?.errors?.required">Username is required</small>
 
-          </div>
+            <div
+              *ngIf="registrationform.get('username')?.errors?.required && (registrationform.get('username')?.dirty ||
+               registrationform.get('username')?.touched)"
+              class="alert alert-danger">
+              username is required.
+            </div>
+
 
           <br><br>
 
@@ -102,17 +120,25 @@
               formControlName="password" placeholder="Enter your password" name="password">
           </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.password.errors?.required">Password is required</small>
-            <small class="text-danger" *ngIf="f.password.errors?.minlength">Invalid Password</small>
-            <small class="text-danger" *ngIf="f.password.errors?.maxlength">Invalid Password</small>
 
+            <div
+              *ngIf="(registrationform.get('password')?.dirty || 
+              registrationform.get('password')?.touched)"
+              class="alert alert-danger">
+              <a *ngIf="registrationform.get('password')?.errors?.required"> Password is required</a>
+              <a *ngIf="registrationform.get('password')?.errors?.minlength">Minimum length of password is 8.</a>
+              <a *ngIf="registrationform.get('password')?.errors?.maxlength">Maximum length of password is 20.</a>
+              
+              
+            </div>
 
-          </div>
 
           <br><br>
 
-          <div class="input-group">
+
+          
+
+<!--           <div class="input-group">
             <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword"
               type="password" class="form-control" aria-describedby="basic-addon2" formControlName="confirmpassword"
               placeholder="confirm password" name="confirmpassword">
@@ -124,31 +150,50 @@
             <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
 
 
-          </div>
+          </div> -->
 
           <br><br>
 
 
 
+
           <div class="input-group mb-3">
-            <label class="input-group-text" for="cardType">CardType</label><select placeholder="select Your card type"
-              id="cardType" name="cardType" formControlName="cardType" class="form-control">
+
+            <label class="input-group-text" for="cardType">CardType</label>
+            <select placeholder="select Your card type" id="cardType" name="cardType"
+              formControlName="cardType" class="form-control">
+
               <option>Gold</option>
               <option>Titanium</option>
             </select>
+            <div
+              *ngIf="registrationform.get('cardType')?.errors?.required && (registrationform.get('cardType')?.dirty || 
+              registrationform.get('cardType')?.touched)"
+              class="alert alert-danger">
+              card type is required.
+            </div>
 
           </div><br><br>
           <div class="input-group ">
             <label class="input-group-text" for="bank">Bank</label>
-            <select placeholder="select bank" id="bank" name="bank" formControlName="bank" class="form-control">
-              <option>IDBI</option>
-              <option>ICICI</option>
-              <option>State Bank of India</option>
-              <option>Jammu and Kashmir Bank</option>
-              <option>Karnataka Bank Ltd</option>
-              <option>HDFC Bank</option>
-              <option>Axis Bank</option>
-            </select>
+
+          <select placeholder="select bank" id="bank" name="bank" formControlName="bank"
+            class="form-control">
+            <option>IDBI</option>
+            <option>ICICI</option>
+            <option>State Bank of India</option>
+            <option>Jammu and Kashmir Bank</option>
+            <option>Karnataka Bank Ltd</option>
+            <option>HDFC Bank</option>
+            <option>Axis Bank</option>
+          </select>
+          <div
+              *ngIf="registrationform.get('bank')?.errors?.required && (registrationform.get('bank')?.dirty || 
+              registrationform.get('bank')?.touched)"
+              class="alert alert-danger">
+             Bank is required.
+            </div>
+
           </div>
 
           <br><br>
@@ -160,11 +205,16 @@
               placeholder="Enter Account number" name="accntno">
           </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.accountno.errors?.required">Account Number is required</small>
-            <small class="text-danger" *ngIf="f.accountno.errors?.minlength">Invalid Account number</small>
-            <small class="text-danger" *ngIf="f.accountno.errors?.maxlength">Invalid Account number</small>
 
+            <div
+            *ngIf="(registrationform.get('accountno')?.dirty || 
+            registrationform.get('accountno')?.touched)"
+            class="alert alert-danger">
+            <div *ngIf="registrationform.get('accountno')?.errors?.required"> Account number is required</div>
+            <div *ngIf="registrationform.get('accountno')?.errors?.minlength">Invalid account number</div>
+            <div *ngIf="registrationform.get('accountno')?.errors?.maxlength">Invalid account number</div>
+            
+            
 
           </div>
 
@@ -172,22 +222,95 @@
 
 
           <div class="input-group ">
-            <label class="input-group-text" for="ifsc">IFSC code:</label><input id="ifsc" type="text"
-              class="form-control" aria-describedby="basic-addon2" formControlName="ifsc" placeholder="Enter IFSC code"
-              name="ifsc">
-          </div>
-          <div>
-            <small class="text-danger" *ngIf="f.ifsc?.errors?.required">IFSC code is required</small>
-            <small class="text-danger" *ngIf="f.ifsc?.errors?.pattern">Invalid IFSC code</small>
+
+            <label class="input-group-text" for="ifsc">IFSC code:</label><input id="ifsc" type="text" class="form-control" aria-describedby="basic-addon2"
+              formControlName="ifsc" placeholder="Enter IFSC code" name="ifsc">
+            </div>
+            <div
+            *ngIf="registrationform.get('ifsc')?.errors?.required && (registrationform.get('ifsc')?.dirty || 
+            registrationform.get('ifsc')?.touched)"
+            class="alert alert-danger">
+            <div *ngIf="registrationform.get('ifsc')?.errors?.required"> IFSC code  is required</div>
+            
+            
+            
 
           </div>
 
           <br><br>
 
+          <!-- <div>
+            <input type="file" name="pay-slip" ng2FileSelect [uploader]="uploader" /> -->
+        
+        <!-- <button type="button" class="btn btn-success btn-s" 
+          (click)="uploader.uploadAll()" 
+          [disabled]="!uploader.getNotUploadedItems().length" >
+             Upload File
+        </button>
+            </div> -->
+<h2>Your Payment Information</h2>
+            <div class="input-group">
+              <label class="input-group-text" for="owner">Owner</label><input id="owner" type="text"
+               class="form-control" aria-describedby="basic-addon2"
+                formControlName="owner" placeholder="Enter Owner" name="Owner">
+              </div>
+  
+              <div
+                *ngIf="registrationform.get('owner')?.errors?.required && (registrationform.get('owner')?.dirty ||
+                 registrationform.get('owner')?.touched)"
+                class="alert alert-danger">
+                Owner is required.
+              </div><br><br>
+
+              <div class="input-group">
+                <label class="input-group-text" for="cvv">CVV</label><input id="cvv" type="number"
+                 class="form-control" aria-describedby="basic-addon2"
+                  formControlName="cvv" placeholder="Enter CVV" name="cvv">
+                </div>
+    
+                <div
+                  *ngIf="registrationform.get('cvv')?.errors?.required && (registrationform.get('cvv')?.dirty ||
+                   registrationform.get('cvv')?.touched)"
+                  class="alert alert-danger">
+                  CVV is required.
+                </div><br><br>
+
+
+                <div class="input-group">
+                  <label class="input-group-text" for="cardnumber">Card Number</label><input id="cardnumber" type="number"
+                   class="form-control" aria-describedby="basic-addon2"
+                    formControlName="cardnumber" placeholder="Enter Card number" name="cardnumber">
+                  </div>
+      
+                  <div
+                    *ngIf="registrationform.get('cardnumber')?.errors?.required && (registrationform.get('cardnumber')?.dirty ||
+                     registrationform.get('cardnumber')?.touched)"
+                    class="alert alert-danger">
+                    Card Number is required.
+                  </div><br><br>
+
+
+                  <div class="input-group">
+                    <label class="input-group-text" for="expiry">Card Number</label><input id="expiry" type="date"
+                     class="form-control" aria-describedby="basic-addon2"
+                      formControlName="expiry" placeholder="Enter Date" name="expiry">
+                    </div>
+        
+                    <div
+                      *ngIf="registrationform.get('expiry')?.errors?.required && (registrationform.get('expiry')?.dirty ||
+                       registrationform.get('expiry')?.touched)"
+                      class="alert alert-danger">
+                      Enter Date.
+                    </div><br><br>
+
           <div class="form-group">
 
             <button type="submit" class="btn btn-primary" (click)="submit()">Register</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button><br><br>
+
+
+            
+
 
             <div class="form-group">
               <button type="button" data-dismiss="modal" class="btn btn-link" data-toggle="modal"
@@ -198,3 +321,38 @@
 
             </div>
           </div>
+
+
+
+<!-- ==========================================================================================
+  
+  
+  <div class="input-group">
+            <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword" type="password" class="form-control"
+              aria-describedby="basic-addon2" formControlName="confirmpassword" placeholder="confirm password"
+              name="confirmpassword">
+            </div>
+
+            
+
+            <div
+              *ngIf="(registrationform.get('confirmpassword')?.dirty || 
+              registrationform.get('confirmpassword')?.touched)"
+              class="alert alert-danger">
+               <a *ngIf="registrationform.get('confirmpassword')?.errors?.required"> Password is required</a> 
+              <a *ngIf="registrationform.get('confirmpassword')?.errors?.required"> Password is required</a>
+              <a *ngIf="registrationform.get('confirmpassword')?.errors?.minlength">Minimum length of password is 8.</a>
+              <a *ngIf="registrationform.get('confirmpassword')?.errors?.maxlength">Maximum length of password is 12.</a>
+              <a *ngIf="registrationform.get('confirmpassword')?.errors?.pattern">Invalid Password</a>
+              
+            </div>
+
+          <br><br>
+  
+  
+  
+  
+  
+  
+  
+ 
