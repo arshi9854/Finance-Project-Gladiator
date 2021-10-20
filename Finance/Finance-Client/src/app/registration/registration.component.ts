@@ -30,20 +30,20 @@ export class RegistrationComponent implements OnInit {
 
   registrationform=new FormGroup({
 
-    Name:new FormControl('',Validators.required),
-    Phone_no:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),//pattern
-    Email:new FormControl('',[Validators.required]),
-      Address:new FormControl('',[Validators.required]),
-      username:new FormControl('',[Validators.required]),
-      password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
-      confirmpassword:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
-      cardType:new FormControl('',Validators.required),
-      bank:new FormControl('',Validators.required),
-      accountno:new FormControl('',[Validators.required,Validators.minLength(11),Validators.maxLength(11)]),
-      ifsc:new FormControl('',[Validators.required]),
-      owner:new FormControl('',Validators.required),
-      cvv:new FormControl('',Validators.required),
-      cardnumber:new FormControl('',Validators.required),
+    Name:new FormControl('aravind',Validators.required),
+    Phone_no:new FormControl('8778570834',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),//pattern
+    Email:new FormControl('araviku04@gmail.com',[Validators.required]),
+      Address:new FormControl('13/1 asdasd',[Validators.required]),
+      username:new FormControl('asdasd',[Validators.required]),
+      password:new FormControl('asdasdasdasd',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
+      confirmpassword:new FormControl('asdasdasdasd',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),//pattern
+      cardType:new FormControl('Gold',Validators.required),
+      bank:new FormControl('ICICI',Validators.required),
+      accountno:new FormControl('123123123',[Validators.required,Validators.minLength(11),Validators.maxLength(11)]),
+      ifsc:new FormControl('123123123',[Validators.required]),
+      owner:new FormControl('me',Validators.required),
+      cvv:new FormControl('123',Validators.required),
+      cardnumber:new FormControl('123123123',Validators.required),
       expiry:new FormControl('',Validators.required)
 
 
@@ -101,13 +101,17 @@ submit() {
 
 
 
-  					console.log(Registration);
-      this.submitted = true;
+  		console.log(Registration);
+      this.submitted = true;
+      
       if(this.registrationform.invalid){
         return;
       }
-  this.registrationService.addUser(Registration)
-      .subscribe(data => console.log(data), error => console.log(error));
+  this.registrationService.addUser(Registration).subscribe(data =>
+    { 
+      console.log(data)
+    }, 
+    error => console.log(error));
 
 
 }

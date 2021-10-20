@@ -49,9 +49,6 @@ export class BuyProductComponent implements OnInit {
     let yyyy = String(today.getFullYear());
     let date_today=yyyy+"-"+mm+"-"+dd;
     this.payAmount = Math.ceil((cost - (cost*option)/100)/this.tenure);
-
-
-
     let addbuyproduct:buyProduct={
       userId:this.userId,
       productId:this.productId,
@@ -59,9 +56,7 @@ export class BuyProductComponent implements OnInit {
       paidAmount:this.payAmount,
       emiScheme:option,
       productName:this.productData.productName
-    }
-
-    
+    }    
     if(confirm("YOU ARE ABOUT TO PAY =======>"+"rs. "+this.payAmount+"\n EMI DURATION=======>"+this.tenure+"months"+ "\nCONFIRM PAYMENT")){
 
       console.log(addbuyproduct);
@@ -84,7 +79,5 @@ export class BuyProductComponent implements OnInit {
         alert("PURCHASE FAILED!!");
         this.router.navigateByUrl("/product")
       }
-
-
 }
 }

@@ -122,12 +122,10 @@
 
 
             <div
-              *ngIf="(registrationform.get('password')?.dirty || 
-              registrationform.get('password')?.touched)"
               class="alert alert-danger">
-              <a *ngIf="registrationform.get('password')?.errors?.required"> Password is required</a>
-              <a *ngIf="registrationform.get('password')?.errors?.minlength">Minimum length of password is 8.</a>
-              <a *ngIf="registrationform.get('password')?.errors?.maxlength">Maximum length of password is 20.</a>
+              <div *ngIf="registrationform.get('password')?.errors?.required"> Password is required</div>
+              <div *ngIf="registrationform.get('password')?.errors?.minlength">Minimum length of password is 8.</div>
+              <div *ngIf="registrationform.get('password')?.errors?.maxlength">Maximum length of password is 20.</div>
               
               
             </div>
@@ -138,19 +136,7 @@
 
           
 
-<!--           <div class="input-group">
-            <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword"
-              type="password" class="form-control" aria-describedby="basic-addon2" formControlName="confirmpassword"
-              placeholder="confirm password" name="confirmpassword">
-          </div>
 
-          <div>
-            <small class="text-danger" *ngIf="f.confirmpassword.errors?.required">Password is required</small>
-            <small class="text-danger" *ngIf="f.confirmpassword.errors?.minlength">Invalid Password</small>
-            <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
-
-
-          </div> -->
 
           <br><br>
 
@@ -239,16 +225,8 @@
 
           <br><br>
 
-          <!-- <div>
-            <input type="file" name="pay-slip" ng2FileSelect [uploader]="uploader" /> -->
         
-        <!-- <button type="button" class="btn btn-success btn-s" 
-          (click)="uploader.uploadAll()" 
-          [disabled]="!uploader.getNotUploadedItems().length" >
-             Upload File
-        </button>
-            </div> -->
-<h2>Your Payment Information</h2>
+             <h2>Your Payment Information</h2>
             <div class="input-group">
               <label class="input-group-text" for="owner">Owner</label><input id="owner" type="text"
                class="form-control" aria-describedby="basic-addon2"
@@ -291,7 +269,7 @@
 
 
                   <div class="input-group">
-                    <label class="input-group-text" for="expiry">Card Number</label><input id="expiry" type="date"
+                    <label class="input-group-text" for="expiry">Expiry Date</label><input id="expiry" type="date"
                      class="form-control" aria-describedby="basic-addon2"
                       formControlName="expiry" placeholder="Enter Date" name="expiry">
                     </div>
@@ -308,25 +286,21 @@
             <button type="submit" class="btn btn-primary" (click)="submit()">Register</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button><br><br>
 
-
-            
-
-
             <div class="form-group">
               <button type="button" data-dismiss="modal" class="btn btn-link" data-toggle="modal"
                 data-target="#loginPage">
                 <!--change data target here-->
                 Already Registered?
               </button>
+           
 
             </div>
           </div>
 
 
 
-<!-- ==========================================================================================
-  
-  
+
+<!--   
   <div class="input-group">
             <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword" type="password" class="form-control"
               aria-describedby="basic-addon2" formControlName="confirmpassword" placeholder="confirm password"
@@ -347,7 +321,22 @@
               
             </div>
 
-          <br><br>
+          <br><br> -->
+
+
+          <!--           <div class="input-group">
+            <label class="input-group-text" for="confirmpassword">Confirm Password</label><input id="confirmpassword"
+              type="password" class="form-control" aria-describedby="basic-addon2" formControlName="confirmpassword"
+              placeholder="confirm password" name="confirmpassword">
+          </div>
+
+          <div>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.required">Password is required</small>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.minlength">Invalid Password</small>
+            <small class="text-danger" *ngIf="f.confirmpassword.errors?.maxlength">Invalid Password</small>
+
+
+          </div> -->
   
   
   
