@@ -18,7 +18,9 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
+    HomePageComponent,
     UserActivationComponent
-
   ],
   imports: [
     BrowserModule,

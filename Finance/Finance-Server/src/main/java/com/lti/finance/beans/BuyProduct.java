@@ -30,7 +30,6 @@ public class BuyProduct {
 	private int emiScheme;
 	
 	@Column(name="order_date")
-	@Temporal(TemporalType.DATE)
 	private Date orderDate;
 	
 	@Column(name="paid_amount")
@@ -39,6 +38,29 @@ public class BuyProduct {
 	@Column(name="product_id")
 	private int productId;
 	
+	@Column(name="product_name")
+	private String productName;
+	
+	public BuyProduct(long transactionId, long userId, int emiScheme, Date orderDate, int paidAmount, int productId,
+			String productName) {
+		super();
+		this.transactionId = transactionId;
+		this.userId = userId;
+		this.emiScheme = emiScheme;
+		this.orderDate = orderDate;
+		this.paidAmount = paidAmount;
+		this.productId = productId;
+		this.productName = productName;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
 	public BuyProduct() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -104,7 +126,8 @@ public class BuyProduct {
 	@Override
 	public String toString() {
 		return "BuyProduct [transactionId=" + transactionId + ", userId=" + userId + ", emiScheme=" + emiScheme
-				+ ", orderDate=" + orderDate + ", paidAmount=" + paidAmount + ", productId=" + productId + "]";
+				+ ", orderDate=" + orderDate + ", paidAmount=" + paidAmount + ", productId=" + productId
+				+ ", productName=" + productName + "]";
 	}
 	
 	

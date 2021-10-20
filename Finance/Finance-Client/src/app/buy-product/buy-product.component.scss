@@ -1,0 +1,67 @@
+.buyproduct{
+    display:flex;
+    padding:30px;
+    justify-content:space-around;
+    &_image{
+        &--picture{
+            height:100vh;
+        }
+    }
+    &_data{
+        box-shadow: 2px 1px 2px 2px  #888888;
+        width:600px;
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        padding:30px;
+        align-items:center;
+        justify-content:space-around;
+        text-align:center;
+        animation:moveInRight;
+        animation-duration:2s;
+        &_head{
+            
+
+        }
+        &_price{
+            margin-bottom:20px;
+
+
+        }
+        &_description{
+            margin-bottom:60px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+
+        }
+        &_select{
+
+        }
+        
+      
+
+    }
+}
+.btn-submit{
+    margin-top:20px;
+}
+.selects{
+    width:300px;
+}
+
+@keyframes moveInRight{
+    0%{
+        opacity:0;
+        transform: translateX(100px);
+    }
+    80%{
+        opacity: .8;
+        transform: translateX(-10px);
+
+    }
+    100%{
+        opacity: 1;
+        transform:translat(0);
+
+    }
+}
