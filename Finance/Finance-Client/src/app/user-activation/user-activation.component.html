@@ -10,8 +10,8 @@
           <th>Username</th>
           <th>Address</th>
           <th>Card Type</th>
+          <th>Activated</th>
           <th>Activation</th>
-          <th>Update</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -25,9 +25,8 @@
           <td>{{user.customerAddress}}</td>
           <td>{{user.cardType}}</td>
           <td>{{user.activation}}</td>
-          <td><button class="btn btn-success" (click)="handle_userid_activation(user.userId)" [disabled] = "user.activation== 'true'">Activate</button></td>
-          <td><button type="button" class="btn btn-secondary">Update</button></td>
-          <td><button type="button" class="btn btn-danger">Delete</button></td>
+          <td><button class="btn btn-success" (click)="handle_userid_activation(user.userId,user.cardType)" [disabled] = "user.activation== 'true'">Activate</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="handle_userid_deletion(user.userId)">Delete</button></td>
         </tr>
       </tbody>
     </table>

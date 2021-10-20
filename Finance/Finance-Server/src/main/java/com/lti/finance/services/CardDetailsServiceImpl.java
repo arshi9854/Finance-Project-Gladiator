@@ -34,9 +34,8 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	}
 	
 	@Override
-	public long addCardDetails(CardDetails card) {
-		// TODO Auto-generated method stub
-		return dao.addCardDetails(card);
+	public String addCardDetails(long userId, int cardType) {
+		return dao.addCardDetails(userId,cardType);
 	}
 	@Override
 	public boolean updateCardDetails(long cardNo,String CardType) {

@@ -18,19 +18,18 @@ public class ForgotPasswordDaoImpl implements ForgotPasswordDao {
 	@Override
 	@Transactional
 	public String emailVerification(String email,long OTP) {
-		String res = "";
 		try {
 			System.out.println(email);
 			String sql = "select userId from Registration where customerEmail=:email";
 			Query query = (Query) this.entityManager.createQuery(sql);
 			query.setParameter("email", email);
 			System.out.println(query.getSingleResult()+"$"+OTP);
-			res= query.getSingleResult()+"." + OTP;
+			return query.getSingleResult()+"." + OTP;
 		} catch (Exception e) {
 			System.out.println("User registered with this "+ email + " not found.");
 			System.out.println(e.getMessage());
+			return "Not Found";
 		}
-		return res;
 	}
 	
 	

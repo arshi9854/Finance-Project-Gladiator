@@ -36,5 +36,11 @@ public class RegistrationController {
 	public boolean checkActivation(@PathVariable(value = "user-id") long userId) {
 		return registrationService.checkActivation(userId);
 	}
+	
+	@GetMapping("delete-user/{user-id}")
+	public String deleteUser(@PathVariable(value = "user-id") long userId) {
+		return registrationService.deleteUser(userId);
+	}
+	
 
 }

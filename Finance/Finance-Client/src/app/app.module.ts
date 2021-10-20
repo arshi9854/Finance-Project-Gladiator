@@ -37,8 +37,6 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
     CarddetailsComponent,
     HomePageComponent,
     UserActivationComponent
-    
-    
 
   ],
   imports: [

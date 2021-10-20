@@ -52,5 +52,11 @@ public class RegistrationServiceImpl implements RegistrationService{
 		return dao.checkActivation(userId);
 	}
 
+
+	@Override
+	public String deleteUser(long userId) {
+		return dao.deleteUser(userId);
+	}
+
 }
 

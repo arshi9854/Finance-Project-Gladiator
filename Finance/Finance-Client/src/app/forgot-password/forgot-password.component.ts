@@ -18,77 +18,83 @@ export class ForgotPasswordComponent implements OnInit {
   temp: string = "";
   otp: number = 0;
   wrongOTP: boolean = false;
-
+  enableVerify: boolean = true;
+  valid: boolean = false;
+  notValidEmail: boolean = false;
+  enableOTPbutton: boolean = false;
 
   constructor(private _formBuilder: FormBuilder, private router: Router, private forgotPasswordService: ForgotPasswordService) { }
 
   ngOnInit(): void {
   }
+
   sendOTPActionButton() {
     this.forgotPasswordService.sendOTPActionButton(this.email).subscribe(data =>
-      sessionStorage.setItem("userIdandOTP",JSON.stringify(data)), error => console.log(error));
-      // data is stored in decimal value as "userId.otp"
-  }
-
-  verifyOTP() {
-//     //take the value of otp from session storage(truncate the value after decimal for otp)
-//     //compare the value from input and value from session storage
-//     //if otp is correct go forward or invalid otp message
-  // idAndOtp = sessionStorage.getItem("userIdandOTP");
-
-  let res = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
-
-  if(res!=""){
-    let userId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[0]);
-    let otpId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[1]);
-    console.log(userId);
-    console.log(otpId);
-
-    if(otpId===this.otp){}
-    else{
-      this.wrongOTP=true;
-      confirm("please enter valid OTP");
+      sessionStorage.setItem("userIdandOTP", JSON.stringify(data)), error => console.log(error));
+    let res: string = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
+    // console.log(typeof(res))
+    // console.log(res)
+    if (res) {
+      this.notValidEmail = true;
+      console.log("if")
     }
-  
-
+    else {
+      this.enableOTPbutton = false;
+      console.log("else")
+    }
   }
 
+  checkOTP() {
+    this.wrongOTP = false;
+    let res = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
+    if (res != "") {
+      let userId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[0]);
+      let otpId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[1]);
+      console.log(userId);
+      console.log(otpId);
 
-
+      if (otpId === this.otp) {
+        this.enableVerify = false;
+        this.valid = true;
+      }
+      else {
+        this.wrongOTP = true;
+      }
+    }
   }
 
   updatePassword() {
-//     //get the userid from session storage (truncate the integer before decimal)
-//     let updateData: send_password = {
-//       userID: JSON.parse(sessionStorage.getItem('userIdandOTP')),
-//       new_password: this.new_password
-//     }
-//     this.forgotPasswordService.updatePassword(this.updateData).subscribe(data => console.log(data), error => console.log(error));
+    //     //get the userid from session storage (truncate the integer before decimal)
+    //     let updateData: send_password = {
+    //       userID: JSON.parse(sessionStorage.getItem('userIdandOTP')),
+    //       new_password: this.new_password
+    //     }
+    //     this.forgotPasswordService.updatePassword(this.updateData).subscribe(data => console.log(data), error => console.log(error));
 
-let res = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
+    let res = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
 
-if(res!=""){
-  let userId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[0]);
-  // let otpId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[1]);
+    if (res != "") {
+      let userId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[0]);
+      // let otpId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[1]);
 
-  let data:send_password;
-  data={
-    userId:userId,
-    newPassword:this.confirm_password
-  }
-  console.log(data);
-  this.forgotPasswordService.updatePassword(data).subscribe(data => console.log(data), error => console.log(error));
-
-
+      let data: send_password;
+      data = {
+        userId: userId,
+        newPassword: this.confirm_password
+      }
+      console.log(data);
+      this.forgotPasswordService.updatePassword(data).subscribe(data => console.log(data), error => console.log(error));
 
 
-  // if(otpId===this.otp){}
-  // else{
-  //   this.wrongOTP=true;
-  //   confirm("please enter valid OTP");
-  // }
 
 
-}
+      // if(otpId===this.otp){}
+      // else{
+      //   this.wrongOTP=true;
+      //   confirm("please enter valid OTP");
+      // }
+
+
+    }
   }
 }
