@@ -26,8 +26,8 @@
           <td>{{user.cardType}}</td>
           <td>{{user.activation}}</td>
           <td><button class="btn btn-success" (click)="handle_userid_activation(user.userId)" [disabled] = "user.activation== 'true'">Activate</button></td>
-          <td><button type="button" class="btn btn-secondary">Update</button></td>
-          <td><button type="button" class="btn btn-danger">Delete</button></td>
+          <td> <button class="btn btn-secondary float-left "><a data-toggle="modal" data-dismiss="modal" data-target="#update">Update</a></button></td>
+          <td><button type="button" class="btn btn-danger" (click)="handle_userid_deletion(user.userId)">Delete</button></td>
         </tr>
       </tbody>
     </table>

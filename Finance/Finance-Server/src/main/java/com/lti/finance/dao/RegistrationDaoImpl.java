@@ -23,17 +23,26 @@ public class RegistrationDaoImpl implements RegistrationDao {
 	@Transactional
 	public long addUser(Registration e) {
 		System.out.println("inside dao");
-
 		try {
-
 			em.persist(e);
 			System.out.println("added");
-
 		} catch (Exception e1) {
 			System.out.println(e1.getMessage());
 		}
-
 		return e.getUserId();
+	}
+	
+	@Override
+	@Transactional
+	public String deleteUser(long userId) {
+		try {
+			Registration user = em.find(Registration.class, userId);
+			em.remove(user);
+			System.out.println("added");
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+		}
+		return "User Removed";
 	}
 
 	@Override

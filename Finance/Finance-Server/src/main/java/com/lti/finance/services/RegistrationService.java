@@ -13,4 +13,5 @@ public interface RegistrationService {
 	public List<Registration> viewUsers();
 	public String approveUser(long userId);
 	public boolean checkActivation(long userId);
+	public String deleteUser(long userId);
 }

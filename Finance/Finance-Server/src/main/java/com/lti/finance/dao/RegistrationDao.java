@@ -21,5 +21,8 @@ public interface RegistrationDao {
 	
 	// check if user is activated
 	public boolean checkActivation(long userId);
+	
+	//delete user from the table
+	public String deleteUser(long userId);
 
 }
