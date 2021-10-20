@@ -1,7 +1,8 @@
 package com.lti.finance.dao;
 
 import java.util.List;
-
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -38,11 +39,30 @@ public class CardDetailsDaoImpl implements CardDetailsDao {
 
 	@Override
 	@Transactional
-	public long addCardDetails(CardDetails card) {
-		em.persist(card);
-		System.out.println("RECORD INSERTED");
-		// TODO Auto-generated method stub
-		return card.getCardNo();
+	public String addCardDetails(long userId, int cardType) {
+		CardDetails card = new CardDetails();
+		Date date = new Date();  
+	    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yy");  
+	    String strDate= formatter.format(date);
+		card.setUserId(userId);
+		if(cardType==1) {
+			card.setCardType("Gold");
+			card.setTotal(100000);
+			card.setBalance(100000);
+			int years = 2;
+		    String validity =strDate.substring(0,7)+ Integer.toString((Integer.parseInt(strDate.substring(strDate.length()-2)) + years));
+		    card.setValidity(validity);
+		}
+		else {
+			card.setCardType("Titanium");
+			card.setTotal(200000);
+			card.setBalance(200000);
+			int years = 3;
+		    String validity =strDate.substring(0,7)+ Integer.toString((Integer.parseInt(strDate.substring(strDate.length()-2)) + years));
+		    card.setValidity(validity);
+		}
+		this.em.persist(card);
+		return "Card Generated Successfully";
 	}
 
 	@Override

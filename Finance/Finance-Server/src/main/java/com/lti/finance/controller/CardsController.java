@@ -40,9 +40,11 @@ public class CardsController {
 	
 	
 	
-	@PostMapping("/add")
-	public long addProduct(@RequestBody CardDetails card) {
-		return CardDetailsService.addCardDetails(card);
+	@GetMapping("/add/{user-id}/{card-type}")
+	public String addProduct(@PathVariable(value = "user-id") long userId, @PathVariable(value = "card-type") int cardType) {
+		System.out.println(userId);
+		System.out.println(cardType);
+		return CardDetailsService.addCardDetails(userId,cardType);
 	}
 
 	/*@PutMapping("/update/{CARD_NO}/{CARD_TYPE}")

@@ -25,17 +25,31 @@ export class UserActivationComponent implements OnInit {
     })
   }
 
-  handle_userid_activation=(userId: number)=>{
+  handle_userid_activation=(userId: number,cardType: string)=>{
     console.log(userId)
-    this.detailService.user_activation(userId).subscribe()
-    confirm("Are you Sure?")
-    window.location.reload();
+    if(confirm("Are you sure you want to ACTIVATE user?")){
+      this.detailService.user_activation(userId).subscribe();
+      if(cardType==="Gold"){
+      this.detailService.card_activation(userId,1).subscribe();
+      }
+      else{
+        this.detailService.card_activation(userId,2).subscribe();
+      }
+      window.location.reload();
+    }
+    else{
+      window.location.reload();
+    }
   }
 
   handle_userid_deletion(userId: number){
     console.log(userId)
-    this.detailService.user_deletion(userId).subscribe()
-    confirm("Are you Sure?")
+    if(confirm("Are you sure you want to DELETE user?")){
+    this.detailService.user_deletion(userId).subscribe();
     window.location.reload();
+    }
+    else{
+    window.location.reload();
+    }
   }
 }

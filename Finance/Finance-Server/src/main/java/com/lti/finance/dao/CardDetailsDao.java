@@ -7,8 +7,7 @@ import com.lti.finance.beans.CardDetails;
 public interface CardDetailsDao {
 	 List<CardDetails> getCardDetails();
 	 CardDetails getCardDetailsById(long user_id);
-	 long addCardDetails(CardDetails card);
 	 boolean updateCardDetails(long cardNo,String CardType);
 	 long findBalanceByUserId(long user_id,int product_price);
-	 
+	 public String addCardDetails(long userId, int cardType);
 }

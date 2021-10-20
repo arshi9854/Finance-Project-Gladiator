@@ -22,4 +22,8 @@ export class UserDetailsService {
     return this._http.get(this.BaseUrl+"/user/delete-user/"+userId);
   }
 
+  card_activation=(userId:number,cardType:number) => {
+    return this._http.get(this.BaseUrl+"/card/add/"+userId+"/"+cardType);
+  }
+
 }
