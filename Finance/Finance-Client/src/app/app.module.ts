@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
+import {FileUploadModule} from "ng2-file-upload";   
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
     MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
   providers: [FinanceService],
   bootstrap: [AppComponent]
