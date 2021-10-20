@@ -12,7 +12,7 @@ import { allUsers } from '../shared/user-details';
 export class UserActivationComponent implements OnInit {
   userList! : allUsers[];
   userData! : allUsers[];
-activated! : string;
+  activated! : boolean;
   constructor(
     private detailService:UserDetailsService,
     private router: Router
@@ -23,6 +23,13 @@ activated! : string;
       this.userList=data;
       this.userData=this.userList;
     })
+  }
+
+  handle_userid_activation=(userId: number)=>{
+    console.log(userId)
+    this.detailService.user_activation(userId).subscribe()
+    this.router.navigate(["UserActivationComponent"]);
+    confirm("Are you Sure?")
   }
 
 }

@@ -14,4 +14,7 @@ export class UserDetailsService {
      return this._http.get<allUsers[]>(this.BaseUrl+"/all-users");
   }
 
+  user_activation=(userId: number)=>{
+    return this._http.get(this.BaseUrl+"/approve-user/"+userId);
+  }
 }
