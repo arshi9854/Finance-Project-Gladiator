@@ -18,8 +18,11 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarddetailsComponent } from './carddetails/carddetails.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,10 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     NavbarComponent,
     UserActivationComponent,
     UpdateUserComponent
+    CarddetailsComponent,
+    HomePageComponent,
+    UserActivationComponent
+
 
   ],
   imports: [
