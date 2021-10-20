@@ -13,3 +13,14 @@ export interface product_noid{
     productDescription:string
 }
 
+export interface buyProduct{
+    userId:number,
+    productId:number,
+    emiScheme:number,
+    paidAmount:number,
+    orderDate:string,
+    productName:string
+}
+
+
+
