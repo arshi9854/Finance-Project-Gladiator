@@ -14,10 +14,8 @@ export class RegistrationComponent implements OnInit {
   registration: Registration = new Registration();
   // public uploader: FileUploader = new FileUploader({url:UploadURL, itemAlias: 'file'});
 
-
   constructor(private router: Router,
     private registrationService: RegistrationService) { }
-
   ngOnInit(): void {
 
     // this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
@@ -26,7 +24,6 @@ export class RegistrationComponent implements OnInit {
     //      alert('File uploaded successfully');
     //  };
   }
-
 
   registrationform = new FormGroup({
 
@@ -45,30 +42,15 @@ export class RegistrationComponent implements OnInit {
     cvv: new FormControl('', Validators.required),
     cardnumber: new FormControl('', Validators.required),
     expiry: new FormControl('', Validators.required)
-
-
-
-
-
-
-
   }
   )
-
-
-
   get f() {
-
     return this.registrationform.controls;
-
   }
 
   onSubmit() {
     this.registrationform.controls.input.markAsDirty();
   }
-
-
-
 
   submit() {
     let registration: Registration = {
@@ -85,8 +67,6 @@ export class RegistrationComponent implements OnInit {
       activation: "false",
     }
 
-
-
     console.log(registration);
     this.submitted = true;
     if (this.registrationform.invalid) {
@@ -94,7 +74,6 @@ export class RegistrationComponent implements OnInit {
     }
     this.registrationService.addUser(registration)
       .subscribe(data => console.log(data), error => console.log(error));
-
 
   }
 }

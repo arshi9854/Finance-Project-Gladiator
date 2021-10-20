@@ -13,6 +13,8 @@ export class ProductDashboardComponent implements OnInit {
   productData!:product[];
   filterdata:string='';
   sort_by:string='';
+  activation:any;
+  userId:number=-1;
 
 
 
@@ -22,9 +24,15 @@ export class ProductDashboardComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.userId = Number(sessionStorage.getItem('validUserWithId'));
+
     this.productService.getProducts().subscribe((data)=>{
       this.productList=data;
       this.productData=this.productList;
+    })
+
+    this.productService.checkActivation(this.userId).subscribe((data)=>{
+      this.activation=data;
     })
 
   }

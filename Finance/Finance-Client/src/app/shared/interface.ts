@@ -22,5 +22,16 @@ export interface buyProduct{
     productName:string
 }
 
+export interface cardDetails{
+    userId:number,
+    cardNo:number,
+    validity:string,
+    cardType:string,
+    total:number,
+    balance:number
+}
+
+
+
 
 
