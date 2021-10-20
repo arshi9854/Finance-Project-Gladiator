@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lti.finance.beans.Registration;
 import com.lti.finance.services.RegistrationService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/admin")
 public class AdminApprovalController {
@@ -27,7 +27,7 @@ public class AdminApprovalController {
 		return registrationService.viewUsers();
 	}
 	
-	@PostMapping("/approve-user/{user-id}")
+	@GetMapping("/approve-user/{user-id}")
 	public String approveUser(@PathVariable(value = "user-id") long userId) {
 		System.out.println(userId);
 		return registrationService.approveUser(userId);

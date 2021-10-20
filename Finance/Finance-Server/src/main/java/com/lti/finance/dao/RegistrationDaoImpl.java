@@ -56,4 +56,14 @@ public class RegistrationDaoImpl implements RegistrationDao {
 		return "User Approved";
 	}
 
+	@Override
+	@Transactional
+	public boolean checkActivation(long id) {
+		String sql = "select activation from Registration where userId=:id";
+		Query query = (Query) em.createQuery(sql);
+		query.setParameter("id", id);
+		String res = (String) query.getSingleResult().toString();
+		return Boolean.parseBoolean(res);
+	}
+
 }

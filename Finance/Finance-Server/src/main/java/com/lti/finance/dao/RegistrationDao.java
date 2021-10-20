@@ -19,5 +19,7 @@ public interface RegistrationDao {
 	//approve the user using userId
 	public String approveUser(long userId);
 	
+	// check if user is activated
+	public boolean checkActivation(long userId);
 
 }
