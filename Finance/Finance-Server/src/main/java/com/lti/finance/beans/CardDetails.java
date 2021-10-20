@@ -33,7 +33,6 @@ public class CardDetails {
 	
 	public CardDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public CardDetails(Date validity, String cardType, int total, int balance, long userId) {

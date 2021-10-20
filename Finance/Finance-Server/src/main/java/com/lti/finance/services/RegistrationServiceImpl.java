@@ -48,7 +48,9 @@ public class RegistrationServiceImpl implements RegistrationService{
 	}
 
 
-
+	public boolean checkActivation(long userId) {
+		return dao.checkActivation(userId);
+	}
 
 }
 

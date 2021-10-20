@@ -19,6 +19,9 @@ import { BuyProductComponent } from './buy-product/buy-product.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { UserActivationComponent } from './user-activation/user-activation.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { CarddetailsComponent } from './carddetails/carddetails.component';
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
-    CarddetailsComponent
+    CarddetailsComponent,
+    HomePageComponent,
+    UserActivationComponent
 
   ],
   imports: [
