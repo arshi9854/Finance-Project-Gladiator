@@ -1,0 +1,13 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+.products{
+    text-align: center;
+}
+.card-footer{
+    text-align: center;
+    background-color: green;
+}

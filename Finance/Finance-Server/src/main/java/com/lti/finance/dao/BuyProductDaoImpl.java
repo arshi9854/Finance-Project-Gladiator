@@ -32,9 +32,6 @@ public class BuyProductDaoImpl implements BuyProductDao {
 	@Transactional
 	public BuyProduct addEmi(BuyProduct buyprod) {
 		System.out.println(buyprod);
-		
-
-		
 		em.persist(buyprod);
 		return buyprod;
 	}
