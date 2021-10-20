@@ -62,6 +62,7 @@ export class ProductDashboardComponent implements OnInit {
     }
 
     take_to_profile =()=>{
+      this.router.navigateByUrl("profile")
     }
 
     handle_buynow =(productId:number)=>{
