@@ -25,6 +25,7 @@ export class CarddetailsComponent implements OnInit {
 
 
   this.cardService.getCardDetailsById(this.userId).subscribe((card_details) => {
+    console.log(card_details);
     sessionStorage.setItem('cardDetails',JSON.stringify(card_details));
   })
 
