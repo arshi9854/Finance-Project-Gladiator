@@ -20,8 +20,7 @@ public class CardDetails {
 	@SequenceGenerator(name="CARD_NUMBER_SEQ",sequenceName="CARD_NUMBER_SEQ", allocationSize=1)
 	private long cardNo;
 	@Column(name="VALIDITY")
-	@Temporal(TemporalType.DATE)
-	private Date validity;
+	private String validity;
 	@Column(name="CARD_TYPE")
 	private String cardType;
 	@Column(name="TOTAL")
@@ -35,7 +34,7 @@ public class CardDetails {
 		super();
 	}
 	
-	public CardDetails(Date validity, String cardType, int total, int balance, long userId) {
+	public CardDetails(String validity, String cardType, int total, int balance, long userId) {
 		super();
 		this.validity = validity;
 		this.cardType = cardType;
@@ -57,10 +56,10 @@ public class CardDetails {
 	}
 
 
-	public Date getValidity() {
+	public String getValidity() {
 		return validity;
 	}
-	public void setValidity(Date validity) {
+	public void setValidity(String validity) {
 		this.validity = validity;
 	}
 	public String getCardType() {

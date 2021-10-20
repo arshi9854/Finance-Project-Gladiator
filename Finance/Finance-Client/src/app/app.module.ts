@@ -21,7 +21,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 @NgModule({
@@ -35,12 +34,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
-    UserActivationComponent,
-    UpdateUserComponent
     CarddetailsComponent,
     HomePageComponent,
     UserActivationComponent
-
 
   ],
   imports: [
