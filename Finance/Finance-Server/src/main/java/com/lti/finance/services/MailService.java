@@ -27,6 +27,7 @@ public class MailService {
 		javaMailSender.send(mail);
 	}
 
+	
 	public void sendEmailForConfirmation(Registration registration) throws MailException {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(registration.getCustomerEmail());

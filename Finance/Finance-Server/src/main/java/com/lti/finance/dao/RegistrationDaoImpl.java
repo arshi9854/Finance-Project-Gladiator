@@ -9,10 +9,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.finance.beans.Registration;
+import com.lti.finance.services.MailService;
 
 //Spring Stereotype-
 
@@ -22,12 +24,16 @@ public class RegistrationDaoImpl implements RegistrationDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Autowired
+	private MailService notificationService;
+	
 	@Override
 	@Transactional
 	public long addUser(Registration e) {
 		System.out.println("inside dao");
 		try {
 			em.persist(e);
+			notificationService.sendEmailForConfirmation(e);
 			System.out.println("added");
 		} catch (Exception e1) {
 			System.out.println(e1.getMessage());
@@ -79,7 +85,7 @@ public class RegistrationDaoImpl implements RegistrationDao {
 	}
 	
 	public void upload(MultipartFile file) throws IOException {
-		 file.transferTo(new File("D:\\Downloads"+file.getOriginalFilename()));
+		 file.transferTo(new File("D:\\Downloads\\"+file.getOriginalFilename()));
 	}
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { FinanceService } from '../services/finance.service';
 import { product, product_noid } from '../shared/interface';
 
@@ -48,7 +49,11 @@ export class AdminHeaderComponent implements OnInit {
 
     this.productService.addProducts(productData).subscribe((data)=>{
       console.log(data);
-      confirm("Product added successfully");
+      Swal.fire(
+        'Yaaayyyy!',
+        'A new product has been added Successfully.',
+        'success'
+      )
       this.productForm.reset();
     })
   }
@@ -59,6 +64,7 @@ export class AdminHeaderComponent implements OnInit {
 
   }
   handle_logout=()=>{
+    // sessionStorage.removeItem()
     this._router.navigateByUrl("/");
 
   }
