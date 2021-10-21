@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { ForgotPasswordService } from '../services/forgot-password.service';
 import { send_password } from '../shared/forgot-password';
 
@@ -64,18 +65,10 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   updatePassword() {
-    //     //get the userid from session storage (truncate the integer before decimal)
-    //     let updateData: send_password = {
-    //       userID: JSON.parse(sessionStorage.getItem('userIdandOTP')),
-    //       new_password: this.new_password
-    //     }
-    //     this.forgotPasswordService.updatePassword(this.updateData).subscribe(data => console.log(data), error => console.log(error));
-
     let res = JSON.stringify(sessionStorage.getItem("userIdandOTP"));
 
     if (res != "") {
       let userId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[0]);
-      // let otpId = parseInt(sessionStorage.getItem("userIdandOTP")!.split('.')[1]);
 
       let data: send_password;
       data = {
@@ -84,17 +77,7 @@ export class ForgotPasswordComponent implements OnInit {
       }
       console.log(data);
       this.forgotPasswordService.updatePassword(data).subscribe(data => console.log(data), error => console.log(error));
-
-
-
-
-      // if(otpId===this.otp){}
-      // else{
-      //   this.wrongOTP=true;
-      //   confirm("please enter valid OTP");
-      // }
-
-
+      Swal.fire('Thank you...', 'Your password was changed succesfully!', 'success');
     }
   }
 }

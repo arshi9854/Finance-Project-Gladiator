@@ -14,8 +14,8 @@ export class LoginButtonComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(
-    private _formBuilder: FormBuilder, 
-    private router: Router, 
+    private _formBuilder: FormBuilder,
+    private router: Router,
     private loginService: LoginService
     ) { }
 
@@ -36,7 +36,7 @@ export class LoginButtonComponent implements OnInit {
   }
 
 
-  // @Output() togglebuttons = new EventEmitter<string>();  
+  // @Output() togglebuttons = new EventEmitter<string>();
 
 
   onSubmit() {
@@ -44,7 +44,6 @@ export class LoginButtonComponent implements OnInit {
       customerUsername: this.loginForm.value.username,
       customerPassword: this.loginForm.value.password
     }
-
     console.log(loginData);
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -62,5 +61,8 @@ export class LoginButtonComponent implements OnInit {
       }
     } , error => console.log(error))
   }
-}
 
+  logout(){
+    sessionStorage.removeItem("validUserWithId");
+  }
+}
