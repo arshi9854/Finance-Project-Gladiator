@@ -65,5 +65,11 @@ public class RegistrationServiceImpl implements RegistrationService{
 			
 		}
 
+
+	@Override
+	public String getUserName(long userId) {
+		return dao.getUserName(userId);
+	}
+
 }
 

@@ -5,16 +5,40 @@ $color-black:#000;
 $color-primary: #55c57a;
 .footer{
     background-color: #333;
-    padding:10rem 10rem;
+    padding:20px 20px;
     font-size: 1.4rem;
-
-  
-
-
-    &__logo-box{
-        text-align: center;
+    display:flex;
+    flex-direction: column;
+    &__logo{
+        // text-align: center;
+        position: relative;
+        left:650px;
         margin-bottom: 6rem;
+        &--title{
+            font-family: "Oswald",sans-serif;
+            font-weight: 600;
+            color:$color-white;
+        }
 
+    }
+    &__icons{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;  
+        &--icon{
+            margin-right:40px;
+
+            color: $color-primary;
+            font-size: 40px;
+            &:hover{
+               transform: scale(1.1);
+               color:$color-white;
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        justify-content:space-between;
     }
 
     &__logo{
@@ -25,14 +49,10 @@ $color-primary: #55c57a;
     &__navigation{
         border-top: 2px solid #777;
         display:inline-block;
-
-      
-
     }
 
     &__list{
         margin-top: 1rem;
-
     }
 
     &__item{
@@ -41,7 +61,6 @@ $color-primary: #55c57a;
         &:not(:last-child){
             margin-right: 2rem;
         }
-
     }
 
     &__link{
@@ -50,7 +69,8 @@ $color-primary: #55c57a;
         &:active,
         &:visited{
             text-decoration: none;
-            text-transform: uppercase;
+            // text-transform: uppercase;
+            font-family: "Oswald",sans-serif;
             color:$color-grey-light-1;
             background-color: #333;
             display:inline-block;
@@ -67,7 +87,7 @@ $color-primary: #55c57a;
     }
 
     &__copyright{
-       
+        color:$color-primary;
         border-top:1px solid #777 ;
         display:inline-block;
         text-align: center;

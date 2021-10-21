@@ -46,5 +46,15 @@ public class LoginDaoImpl implements LoginDao {
 		}
 		return res;
 	}
+	
+	public String getAdminName(long adminId) {
+		// TODO Auto-generated method stub
+		String sql = "select adminName from AdminLogin where adminId=:adminId";
+		Query query = (Query) entityManager.createQuery(sql);
+		query.setParameter("adminId",adminId);
+		String res = (String) query.getSingleResult().toString();
+		return res;
+		
+	}
 
 }

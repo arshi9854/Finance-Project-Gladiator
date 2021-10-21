@@ -29,6 +29,9 @@ public interface RegistrationDao {
 	//delete user from the table
 	public String deleteUser(long userId);
 	
+	//getting username from table
+	public String getUserName(long userId);
+	
 	
 	//fileuploading
 	public void upload(@RequestParam MultipartFile file) throws IOException;

@@ -1,35 +1,39 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Buy It</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-        </ul>
-        <span>
-            
-           <div class="navbutton">
-           <app-login-button class="navbutton_login"></app-login-button>
-        
-          <app-forgot-password class="navbutton"></app-forgot-password>
-          <app-registration class="navbutton_reg"></app-registration>
-          <app-admin-login class="navbutton_ele"></app-admin-login>
-        </div>
-           
-         
-
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </svg> Buy It</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Contact Us</a>
+        </li>
+      </ul>
+      <span>
           
-        </span>
+         <div *ngIf="!isUserLoggedIn;else logout" class="navbutton" >
+         <app-login-button (onHide)="changeHide($event)" (getUserName)="changeUserName($event)" class="navbutton_login" ></app-login-button>
+        <app-forgot-password class="navbutton"></app-forgot-password>
+        <app-registration class="navbutton_reg"></app-registration>
+        <app-admin-login class="navbutton_ele"></app-admin-login>
+        
       </div>
+
+      <ng-template #logout>
+        <span style="color:#fff;">Hello {{userName}}</span><button type="button"  (click)="handle_logout()"class="btn btn-outline-light">Logout</button>
+      </ng-template>
+    
+      </span>
     </div>
-  </nav>
+  </div>
+</nav>
+

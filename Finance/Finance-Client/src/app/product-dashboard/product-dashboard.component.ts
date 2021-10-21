@@ -13,7 +13,7 @@ export class ProductDashboardComponent implements OnInit {
   productData!:product[];
   filterdata:string='';
   sort_by:string='';
-  activation:any;
+  activation:string='false';
   userId:number=-1;
 
 
@@ -30,10 +30,12 @@ export class ProductDashboardComponent implements OnInit {
       this.productList=data;
       this.productData=this.productList;
     })
-
-    this.productService.checkActivation(this.userId).subscribe((data)=>{
-      this.activation=data;
-    })
+    if(this.userId!==0){
+      this.productService.checkActivation(this.userId).subscribe((data)=>{
+        this.activation=JSON.stringify(data);
+      })
+    }
+  
 
   }
 

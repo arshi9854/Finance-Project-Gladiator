@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
+import { RegistrationService } from '../services/registration.service';
 import { login_form } from '../shared/login';
 @Component({
   selector: 'app-login-button',
@@ -13,11 +14,14 @@ export class LoginButtonComponent implements OnInit {
   fieldTextType: boolean = false;
   invalidLogin: boolean = false;
   submitted: boolean = false;
+  userName:string="";
+
 
   constructor(
     private _formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private regService: RegistrationService
     ) { }
 
   ngOnInit(): void { }
@@ -37,7 +41,9 @@ export class LoginButtonComponent implements OnInit {
   }
 
 
-  // @Output() togglebuttons = new EventEmitter<string>();
+
+  @Output() onHide = new EventEmitter<boolean>();
+  @Output() getUserName = new EventEmitter<string>();
 
 
   onSubmit() {
@@ -51,11 +57,17 @@ export class LoginButtonComponent implements OnInit {
       return;
     }
     this.loginService.ValidateUser(loginData).subscribe(data => {
+      console.log(JSON.stringify(data));
       if(JSON.stringify(data)!="0"){
         sessionStorage.setItem("validUserWithId",JSON.stringify(data))
-        console.log(data);
+
+
+        this.regService.getUserName(Number(data)).subscribe((user_name)=>{
+        }, error => {this.userName=error.error.text})
+
+        this.getUserName.emit(this.userName);
+        this.onHide.emit(true);
         this.router.navigateByUrl("/product")
-        // this.togglebuttons.emit("FALSE");
       }
       else{
         Swal.fire(

@@ -88,4 +88,15 @@ public class RegistrationDaoImpl implements RegistrationDao {
 		 file.transferTo(new File("D:\\Downloads\\"+file.getOriginalFilename()));
 	}
 
+	@Override
+	public String getUserName(long userId) {
+		// TODO Auto-generated method stub
+		String sql = "select customerName from Registration where userId=:userId";
+		Query query = (Query) em.createQuery(sql);
+		query.setParameter("userId",userId);
+		String res = (String) query.getSingleResult().toString();
+		return res;
+		
+	}
+
 }

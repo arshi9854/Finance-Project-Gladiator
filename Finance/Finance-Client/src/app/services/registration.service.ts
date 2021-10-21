@@ -8,14 +8,16 @@ import { Registration } from '../shared/Registration';
 })
 export class RegistrationService {
 
-  private baseURL:string="http://localhost:8282/user/registration"
+  private baseURL:string="http://localhost:8282/user"
   constructor(private httpser:HttpClient) { }
 
   addUser(register: Registration) {
-
-        return this.httpser.post(this.baseURL, register);
-
+        return this.httpser.post(this.baseURL+"/registration", register);
       }
+
+    getUserName=(userId:number)=>{
+      return this.httpser.get(this.baseURL+"/get-username/"+userId);
+    }
 
 }
 // 'Access-Control-Allow-Origin', '*'
