@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { RegistrationComponent } from './registration/registration.component';
-import { AdminComponent } from './admin/admin.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
-import {FileUploadModule} from "ng2-file-upload";   
+import {FileUploadModule} from "ng2-file-upload";
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { FooterComponent } from './footer/footer.component';
+import { PricingComponent } from './pricing/pricing.component';   
 
 
 @NgModule({
@@ -30,14 +33,16 @@ import {FileUploadModule} from "ng2-file-upload";
     LoginButtonComponent,
     ForgotPasswordComponent,
     RegistrationComponent,
-    AdminComponent,
     ProductDashboardComponent,
     BuyProductComponent,
     AdminLoginComponent,
     NavbarComponent,
     CarddetailsComponent,
     HomePageComponent,
-    UserActivationComponent
+    UserActivationComponent,
+    AdminHeaderComponent,
+    FooterComponent,
+    PricingComponent
 
   ],
   imports: [

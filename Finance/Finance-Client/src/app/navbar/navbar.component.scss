@@ -1,6 +1,12 @@
-.same-rows{
+.navbutton{
    display:flex;
-   &_ele{
-       margin-left:20px;
+
+   &_login{
+       margin-right:20px;
+       
+      
+   }
+   &_reg{
+       margin-left: 20px;
    }
 }
