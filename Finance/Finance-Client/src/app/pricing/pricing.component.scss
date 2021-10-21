@@ -1,0 +1,25 @@
+.cards{
+    height:400px;
+    &:hover{
+        transform:scale(1.1);
+    }
+}
+.relaxed{
+    background-color:rgba(0,0,0,0.2);
+}
+.header{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing:6px;
+    font-weight:600;
+    background-color:rgba(0,0,0,0.1);
+}
+
+.details{
+    display:flex;
+    flex-direction:column;
+    &_item{
+        margin-bottom:20px;
+        font-size: 20px;
+    }
+    
+}

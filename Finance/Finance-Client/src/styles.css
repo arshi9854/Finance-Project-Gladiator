@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "node_modules/bootstrap/dist/css/bootstrap.css"; */
 
-
-html { height: 100%; }
+html { height: 100%;}
 body { margin: 0;box-sizing: border-box; font-family: Roboto, "Helvetica Neue", sans-serif; }
 * {
     margin:0;
@@ -24,4 +23,44 @@ body { margin: 0;box-sizing: border-box; font-family: Roboto, "Helvetica Neue", 
 .btn-style{
     letter-spacing:1px;
     font-family: system-ui;
+}
+
+@keyframes moveInRight{
+    0%{
+        opacity:0;
+        transform: translateX(100px);
+    }
+    80%{
+        opacity: .8;
+        transform: translateX(-10px);
+
+    }
+    100%{
+        opacity: 1;
+        transform:translat(0);
+
+    }
+}
+@keyframes moveinbottom{
+    0%{
+        opacity:0;
+        transform: translateY(3rem);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+  }
+  @keyframes moveinleft{
+    0%{     
+        opacity: 0;
+        transform:translateX(-10rem)   
+    }
+    80%{
+        transform:translateX(1rem)
+    }
+    100%{
+        opacity:1;
+        transform:translate(0)
+    }
 }

@@ -1,0 +1,46 @@
+.add{
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    
+    &_imageblock{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        width:45%;
+        animation:moveInRight;
+        animation-duration:2s;
+        
+        &--image{
+            width:650px;
+        }
+
+    }
+
+    &_form{
+        padding-top: 30px;
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+
+    }
+}
+
+.form-group{
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+
+}
+
+.logout{
+    position:absolute;
+    top:70px;
+    right:20px;
+}

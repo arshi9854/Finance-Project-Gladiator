@@ -15,8 +15,8 @@ export class UserActivationComponent implements OnInit {
   userData!: allUsers[];
   activated!: boolean;
   constructor(
-    private detailService: UserDetailsService,
-    private router: Router
+    private detailService:UserDetailsService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -73,6 +73,16 @@ export class UserActivationComponent implements OnInit {
         })
       }
     })
+
+  }
+
+  handle_product=()=>{
+    this._router.navigateByUrl('admin');
+
+
+  }
+  handle_logout=()=>{
+    this._router.navigateByUrl("/");
 
   }
 }

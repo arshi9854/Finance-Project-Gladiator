@@ -1,0 +1,45 @@
+img{
+    object-fit:cover;
+    height:100vh;
+    width:100%;
+}
+.tagline{
+    position: absolute;
+    z-index:10;
+    top:100px;
+    right:150px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  
+    &_head{
+        font-family: 'Oswald', sans-serif;
+        letter-spacing:5px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        animation-name: moveinleft;
+        animation-duration: 2s;
+        animation-timing-function:ease-out;
+
+    }
+    &_text{
+        font-family: 'Oswald', sans-serif;
+        letter-spacing:2px;
+        font-weight:200;
+        margin-bottom: 20px;
+        animation-name: moveInRight;
+        animation-duration: 2s;
+        animation-timing-function:ease-out;
+    }
+    &_buynow{
+        width:100%;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing:4px;
+        font-weight:300;
+        animation-name: moveinbottom;
+        animation-duration: 2s;
+        animation-timing-function:ease-out;
+    }
+}
