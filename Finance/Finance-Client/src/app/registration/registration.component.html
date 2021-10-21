@@ -7,7 +7,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="registerpage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,7 +16,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form [formGroup]="registrationform">
+      <form [formGroup]="registrationform" (ngSubmit)="onSubmit()" novalidate>
         <div class="modal-body">
           <div class="form-group">
             <div class="mb-3 input-group">
@@ -238,7 +238,7 @@
         <div class="modal-footer" >
           <div class="form-group" >
             <button type="submit" class="btn btn-primary" (click)="submit()" data-dismiss="modal" data-toggle="modal" data-target="#loginPage">Register</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"[disabled]="!registrationform.valid">Cancel</button><br><br>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"[disabled]="registrationform.invalid">Cancel</button><br><br>
           </div>
         </div>
       </form>

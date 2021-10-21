@@ -1,5 +1,10 @@
 
-<div *ngIf="activation===false" style="margin-top:30px;" class="text-danger center" > User Not Activated !! Contact Admin </div>
+<div *ngIf="activation==='false'" style="margin-top:30px;" class="text-danger center" > 
+  <marquee width="60%" direction="left" >
+   Please Register yourself to get access,If already Registered Please Wait For Our Admins to Validate. Sorry For The Inconvience Caused. 
+  </marquee> 
+</div>
+
 <div class="product">
     <div class="product_functions">
     <div class="product_functions--search">
@@ -17,7 +22,7 @@
     </div>
     
     <div class="product_functions--profile">
-    <button class="btn btn-outline-primary" type="button" [disabled]="activation===false" (click)="take_to_profile()">My Profile</button>
+    <button class="btn btn-outline-primary" type="button" [disabled]="activation==='false'" (click)="take_to_profile()">My Profile</button>
     </div>
 </div>
 
@@ -32,7 +37,7 @@
               <h5 class="card-title">Price:</h5>
               <p class="card-text">&#x20B9;{{product.productCost}} </p>
               </div>
-              <button  class="btn btn-primary" [disabled]="activation===false" (click)="handle_buynow(product.productId)">Buy Now</button>
+              <button  class="btn btn-primary" [disabled]="activation==='false'" (click)="handle_buynow(product.productId)">Buy Now</button>
             </div>
           </div>
     </div>

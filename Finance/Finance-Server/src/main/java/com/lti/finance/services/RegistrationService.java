@@ -18,5 +18,6 @@ public interface RegistrationService {
 	public String approveUser(long userId);
 	public boolean checkActivation(long userId);
 	public String deleteUser(long userId);
+	public String getUserName(long userId);
 	public void upload(@RequestParam MultipartFile file) throws IOException;
 }

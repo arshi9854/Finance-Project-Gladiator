@@ -33,4 +33,10 @@ public class LoginServiceImpl implements LoginService {
 		return loginDao.ValidateAdmin(adminUsername, adminPassword);
 	}
 
+	@Override
+	public String getAdminName(long adminId) {
+		// TODO Auto-generated method stub
+		return loginDao.getAdminName(adminId);
+	}
+
 }

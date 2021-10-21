@@ -50,5 +50,13 @@ public class RegistrationController {
 	  public void upload(@RequestParam MultipartFile file) throws IOException {
 		registrationService.upload(file);
 	  }
+	
+	@GetMapping("get-username/{user-id}")
+	public String getUser(@PathVariable(value = "user-id") long userId) {
+		System.out.println("inside get-user-name-reg");
+		return registrationService.getUserName(userId);
+	}
+	
+	
 
 }

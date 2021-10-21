@@ -5,4 +5,6 @@ public interface LoginDao{
 	public long ValidateUser(String customerUsername, String customerPassword);
 	
 	public long ValidateAdmin(String adminUsername, String adminPassword);
+	
+	public String getAdminName(long adminId);
 }
