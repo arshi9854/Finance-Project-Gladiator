@@ -51,7 +51,7 @@ public class ForgotPasswordController {
 	public String emailVerification(@RequestBody String email) {
 		System.out.println(email);
 		long OTP = generateOTP();
-//		notificationService.sendEmailForOTP(email,OTP);
+		notificationService.sendEmailForOTP(email,OTP);
 		return forgotPasswordService.emailVerification(email, OTP);
 	}
 

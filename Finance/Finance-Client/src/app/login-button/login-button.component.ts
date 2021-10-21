@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
 import { login_form } from '../shared/login';
 @Component({
@@ -57,7 +58,11 @@ export class LoginButtonComponent implements OnInit {
         // this.togglebuttons.emit("FALSE");
       }
       else{
-        confirm("Enter valid username and password!")
+        Swal.fire(
+          'Opsss...',
+          'Enter valid username and password',
+          'error'
+        )
       }
     } , error => console.log(error))
   }

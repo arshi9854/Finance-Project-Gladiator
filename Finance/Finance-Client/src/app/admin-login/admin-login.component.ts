@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AdminLoginService } from '../services/admin-login.service';
 import { admin_login_form } from '../shared/adminLogin';
 
@@ -46,21 +47,24 @@ export class AdminLoginComponent implements OnInit {
       return;
     }
     this.adminLoginService.validateAdmin(adminLoginData).subscribe(data =>{
-
       if(JSON.stringify(data)!="0"){
         sessionStorage.setItem("validAdminWithId",JSON.stringify(data))
         console.log(data);
         this.router.navigateByUrl("/admin")
       }
       else{
-        confirm("Enter valid Admin Name and password!")
+        Swal.fire(
+          'Opsss...',
+          'Enter valid Admin username and password',
+          'error'
+        )
       }
 
     } , error => console.log(error));
- 
-    
+
+
 
   }
 }
 
-  
+

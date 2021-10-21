@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.finance.beans.Registration;
+import com.lti.finance.services.MailService;
 import com.lti.finance.services.RegistrationServiceImpl;
 
 
@@ -26,8 +27,8 @@ public class RegistrationController {
 
 	@Autowired
 	RegistrationServiceImpl registrationService;
-
-	// http://localhost:8091/user/registration
+	@Autowired
+	private MailService notificationService;
 	
 	@PostMapping("/registration")
 	public long addUser(@RequestBody Registration registration) {

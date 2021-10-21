@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Registration } from '../shared/Registration';
 import { RegistrationService } from '../services/registration.service';
 import { FileUploader } from 'ng2-file-upload';
+import Swal from 'sweetalert2';
 const UploadURL = 'http://localhost:8282/user/upload';
 
 @Component({
@@ -84,15 +85,14 @@ get f() {
       customerIfsc: this.registrationform.value.ifsc,
       activation: "false",
     }
-
-
-
     console.log(registration);
     this.submitted = true;
     this.registrationService.addUser(registration)
       .subscribe(data => console.log(data), error => console.log(error));
-
+      Swal.fire(
+        'Yaaayyyy!',
+        'You are successfully registered. Mail has been triggered with your User ID.',
+        'success'
+      )
   }
-
-
 }
